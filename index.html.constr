@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body {
+      height: 1080px;
+      background-image: linear-gradient(to top, rgba(253,253,251,0), rgba(206,200,188,1));
+    }
+  </style>
+</head>
+
+<body>
+  <div id="wrapper" style="position: absolute; width:100%; text-align:top; text-align:center; margin-top:0px;">
+    <img src="data/images/tech/under-construction.jpg"/>
+  </div>
+</body>
+</html>

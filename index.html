@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-90TCG4QQ5H"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-90TCG4QQ5H');
+    </script>
+
+    <title>POV-Lab</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+<!-- Caching -->  
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="expires" content="timestamp">
+
+    <link type="text/css" rel="stylesheet" href="index.css">
+  </head>
+
+	<body>
+
+  <!-- About (old browsers ?)  -->
+  <dialog id="about">
+    <br>
+    <div style="font-size: 24px; position:flex; text-align:'center'; align-items: center; justify-content: center; color: #ffac13;">POV-Lab</div>
+    <p>This is a pilot version of site dedicated to one of the best raytracers in CG history, work in progress now.</p>
+    <a href="https://povray.org" target="_blank">POV-Ray</a> scenes was rendered with <a href="https://wiki.povray.org/content/User:Le_Forgeron" target="_blank">HgPovray</a> stereo camera and can be viewed in VR mode. Select mask icon on toolbar to enter VR, download scene source by selecting download icon.</p>
+    <p>Please look at following tutorials, if you are interested in:
+    <a href="https://povlab.online/povtutorial/" target="_blank">Basics</a>,
+    <a href="https://povlab.online/animtutorial/" target="_blank">Animation</a>,
+    <a href="https://povlab.online/isotutorial/" target="_blank">Isosurfaces</a>.</p>
+    <br>
+    </p>Contact me at <a href="https://www.linkedin.com/in/sergey-yanenko-57b21a96/" target="_blank">LinkedIn</a> or send <a href='mailto:syanenko65@gmain.com'>e-mail</a>.</p>
+    <form method="dialog" style="text-align:center">
+      <button>OK</button>
+    </form>
+  </dialog>
+
+  <!-- Header --> 
+  <div id='header'></div>
+
+  <!-- Name --> 
+  <div id="name"></div>
+
+  <!-- Image -->
+  <div id="image_place"><img id='image'></img></div>
+
+  <!-- Description --> 
+  <div id="description"></div>
+
+  <!-- Download -->
+  <a id="zip" download >
+    <img id="zip_icon" class="nav" src="data/images/tech/icons/outline_file_download_white_36dp.png"
+                       onmouseenter="style.opacity = '1.0'"
+                       onmouseleave="style.opacity = '0.6'"
+                       alt="Download"/>
+  </a>
+
+  <!-- VRButton -->
+  <div id='vr_button'></div>
+
+  <!-- <<  -->
+  <img id='prev' class="nav" style="left: 50px" src="data/images/tech/icons/outline_arrow_circle_left_white_36dp.png" alt="Prev"
+                                                onclick="post > 1 ? showPost(--post): ()=>{}"
+                                                onmouseenter="style.opacity = '1.0'" 
+                                                onmouseleave="style.opacity = '0.5'"/>
+  <!-- >> -->
+  <img id='next' class="nav" style="right: 50px" src="data/images/tech/icons/outline_arrow_circle_right_white_36dp.png" alt="Next"
+                                                 onclick="post < max_post ? showPost(++post): ()=>{}"
+                                                 onmouseenter="style.opacity = '1.0'" 
+                                                 onmouseleave="style.opacity = '0.6'"/>
+  <!-- Insert header -->
+  <script>
+    fetch("./header.html")
+      .then(response => {
+        return response.text()
+      }).then(data => {
+        document.getElementById('header').innerHTML = data;
+      });
+  </script>
+
+  <script type="module" src="./vrview.js"></script>
+
+  <!-- Selector -->
+  <script>
+    const max_post = 5;
+    var post = 0;
+    const Projection = { FLAT:  0,
+                          VR180: 1,
+                          VR360: 2 };
+    var proj = Projection.FLAT;
+    var images_dir = 'data/images/';
+
+    let img  = document.getElementById("image");
+    let name = document.getElementById("name");
+    let desc = document.getElementById("description");
+    let zip  = document.getElementById("zip");
+    zip.style.visibility = "hidden";
+    let vr_button  = document.getElementById("vr_button");
+    vr_button.style.visibility = "hidden";
+   
+    let prev = document.getElementById("prev");
+    let next = document.getElementById("next");
+    prev.style.visibility = "hidden";
+    next.style.visibility = "hidden";
+    let about = document.getElementById("about");
+    var images = [];
+
+    // Show post
+    function showPost(p){
+      post = p;
+      switch(p) {
+        case 1:
+          name.innerHTML = 'Surface 1';
+          desc.innerHTML = '(1) z = sin (sqrt (x^2 + y^2)) / (sqrt (x^2 + y^2))';
+          zip.href       = 'data/scenes/scene_1.zip';
+          zip.style.visibility  = "visible";
+          vr_button.style.visibility = "visible";
+          prev.style.visibility = "visible";
+          next.style.visibility = "visible";
+          img.setAttribute("src", "data/images/posts/surface_1.png")
+
+          images[0] = "posts/surface_1_cam_0.png";
+          images[1] = "posts/surface_1_cam_1.png";
+          images[2] = "posts/surface_1_cam_2.png";
+          break;
+
+        case 2:
+          name.innerHTML = 'Surface 2';
+          desc.innerHTML = '(2) z = sin (sqrt (x^2 + y^2)) / (sqrt (x^2 + y^2))';
+          zip.href       = 'data/scenes/scene_2.zip';
+          zip.style.visibility = "visible";
+          vr_button.style.visibility = "visible";
+          prev.style.visibility = "visible";
+          next.style.visibility = "visible";
+          img.setAttribute("src", "data/images/posts/surface_2.png")
+
+          images[0] = "posts/surface_2_cam_0.png";
+          images[1] = "posts/surface_2_cam_1.png";
+          images[2] = "posts/surface_2_cam_2.png";
+          break;
+
+        case 3:
+          name.innerHTML = 'Surface 3';
+          desc.innerHTML = '(3) z = sin (sqrt (x^2 + y^2)) / (sqrt (x^2 + y^2))';
+          zip.href       = 'data/scenes/scene_3.zip';
+          zip.style.visibility = "visible";
+          vr_button.style.visibility = "visible";
+          prev.style.visibility = "visible";
+          next.style.visibility = "visible";
+          img.setAttribute("src", "data/images/posts/surface_3.png")
+
+          images[0] = "posts/surface_3_cam_0.png";
+          images[1] = "posts/surface_3_cam_1.png";
+          images[2] = "posts/surface_3_cam_2.png";
+          break;
+
+        case 4:
+          name.innerHTML = 'Surface 4';
+          desc.innerHTML = '(4) z = sin (sqrt (x^2 + y^2)) / (sqrt (x^2 + y^2))';
+          zip.href       = 'data/scenes/scene_4.zip';
+          zip.style.visibility = "visible";
+          vr_button.style.visibility = "visible";
+          prev.style.visibility = "visible";
+          next.style.visibility = "visible";
+          img.setAttribute("src", "data/images/posts/surface_4.png")
+
+          images[0] = "posts/surface_4_cam_0.png";
+          images[1] = "posts/surface_4_cam_1.png";
+          images[2] = "posts/surface_4_cam_2.png";
+          break;
+
+        case 5:
+          name.innerHTML = 'Surface 5';
+          desc.innerHTML = '(5) z = sin (sqrt (x^2 + y^2)) / (sqrt (x^2 + y^2))';
+          zip.href       = 'data/scenes/scene_5.zip';
+          zip.style.visibility = "visible";
+          vr_button.style.visibility = "visible";
+          prev.style.visibility = "visible";
+          next.style.visibility = "visible";
+          img.setAttribute("src", "data/images/posts/surface_5.png")
+
+          images[0] = "posts/surface_5_cam_0.png";
+          images[1] = "posts/surface_5_cam_1.png";
+          images[2] = "posts/surface_5_cam_2.png";
+          break;
+      }
+      
+      if(images.length == 0) {
+        console.log("vrview[31]: No images to view !");
+      } else {
+        window.vrView();
+      }
+    }
+
+    function showAbout() 
+    {
+      about.showModal();
+    }
+
+  </script>
+
+  <script>
+    // Initial view
+    setTimeout(()=>showPost(1), 500);
+  </script>
+
+  <!-- Menu -->
+  <div id="info">
+    <button onclick="showPost(1)">Surface 1</button>
+    <button onclick="showPost(2)">Surface 2</button>
+    <button onclick="showPost(3)">Surface 3</button>
+    <button onclick="showPost(4)">Surface 4</button>
+    <button onclick="showPost(5)">Surface 5</button>
+    <button onclick="showAbout()">About</button>
+  </div>
+
+	</body>
+</html>

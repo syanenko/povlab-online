@@ -1,0 +1,51 @@
+{
+  "_from": "@webxr-input-profiles/assets@^1.0.14",
+  "_id": "@webxr-input-profiles/assets@1.0.14",
+  "_inBundle": false,
+  "_integrity": "sha512-I+uDi9W1pRAnyqVi+MsB+xgeuWP94m1LFn5ij8BroVFCJDnpiWqJp6aw0Rp6ZLuQ1gXJrBxL7bAwk2Qto/7sog==",
+  "_location": "/@webxr-input-profiles/assets",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "@webxr-input-profiles/assets@^1.0.14",
+    "name": "@webxr-input-profiles/assets",
+    "escapedName": "@webxr-input-profiles%2fassets",
+    "scope": "@webxr-input-profiles",
+    "rawSpec": "^1.0.14",
+    "saveSpec": null,
+    "fetchSpec": "^1.0.14"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@webxr-input-profiles/assets/-/assets-1.0.14.tgz",
+  "_shasum": "12a294b3c55b467973de599e79898b373f202c05",
+  "_spec": "@webxr-input-profiles/assets@^1.0.14",
+  "_where": "C:\\Projects\\zxr",
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "assets",
+  "devDependencies": {
+    "@webxr-input-profiles/registry": "^1.0.0"
+  },
+  "files": [
+    "package.json",
+    "LICENSE",
+    "README.md",
+    "dist/profiles/",
+    "schemas/",
+    "src/**"
+  ],
+  "main": "dist/profilesList.json",
+  "name": "@webxr-input-profiles/assets",
+  "scripts": {
+    "build": "gulp",
+    "clean": "gulp clean",
+    "cleanBuild": "npm run clean && npm run build",
+    "test": "echo \"Run tests from root\" && exit 1",
+    "watch": "gulp watch"
+  },
+  "version": "1.0.14"
+}

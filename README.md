@@ -1,2 +1,2 @@
-# vanilla.povlab.online
- POV-Lab lecacy vanilla showcase
+## POV-Lab Showcase
+Lagacy vanilla release
