@@ -25,16 +25,15 @@ button {
 	background-color: #444;
         color: #ffac13;
 	cursor: pointer;
-	text-transform: uppercase;
 }
 
-#info {
+#posts {
 	position: absolute;
-	top: 0px;
+	bottom: 0px;
 	width: 100%;
 	padding: 10px;
 	box-sizing: border-box;
-	text-align: right;
+	text-align: center;
 	-moz-user-select: none;
 	-webkit-user-select: none;
 	-ms-user-select: none;
