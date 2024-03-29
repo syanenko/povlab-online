@@ -157,8 +157,8 @@ a, button, input, select {
 #name {
   color: #ffac13;
   position: absolute;
-  top: 83px;
-  left: 40px;
+  top: 85px;
+  left: 35px;
   font-size: 145%;
   font-style: italic;
 }
@@ -167,8 +167,8 @@ a, button, input, select {
   color: #fff;
   opacity:0.8;
   position: absolute;
-  top: 115px;
-  left: 40px;
+  top: 90px;
+  right: 35px;
   font-size: 130%;
   font-style: italic;
 }
