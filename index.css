@@ -22,7 +22,7 @@ button {
 	width: 35px;
 	height: 35px;
         font-size: 15px;
-	background-color: #444;
+	background-color: #333;
         color: #ffac13;
 	cursor: pointer;
 }
@@ -142,7 +142,7 @@ a, button, input, select {
   position: absolute;
   top: 35px;
   left: 90px;
-  font-size: 100%;
+  font-size: 110%;
   color: #ffffff;
   opacity: 0.6;
   cursor: pointer;
