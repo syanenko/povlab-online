@@ -27,8 +27,8 @@
   <!-- About (old browsers ?)  -->
   <dialog id="about">
     <br>
-    <div style="font-size: 24px; position:flex; text-align:'center'; align-items: center; justify-content: center; color: #ffac13;">POV-Lab</div>
-    <p>This is a pilot version of site dedicated to one of the best raytracers in CG history, work in progress now.</p>
+    <div style="font-size: 24px; position:absolute; left:50px; color: #ffac13;">POV-Lab</div>
+    <br><br>
     <a href="https://povray.org" target="_blank">POV-Ray</a> scenes was rendered with <a href="https://wiki.povray.org/content/User:Le_Forgeron" target="_blank">HgPovray</a> stereo camera and can be viewed in VR mode. Select mask icon on toolbar to enter VR, download scene source by selecting download icon.</p>
     <p>Please look at following tutorials, if you are interested in:
     <a href="https://povlab.online/povtutorial/" target="_blank">Basics</a>,
@@ -37,7 +37,7 @@
     <br>
     </p>Contact me at <a href="https://www.linkedin.com/in/sergey-yanenko-57b21a96/" target="_blank">LinkedIn</a> or send <a href='mailto:syanenko65@gmain.com'>e-mail</a>.</p>
     <form method="dialog" style="text-align:center">
-      <button>OK</button>
+      <button style='width:100px'>OK</button>
     </form>
   </dialog>
 
@@ -121,8 +121,8 @@
           zip.href       = 'data/scenes/scene_1.zip';
           zip.style.visibility  = "visible";
           vr_button.style.visibility = "visible";
-          prev.style.visibility = "visible";
-          next.style.visibility = "visible";
+          //prev.style.visibility = "visible";
+          //next.style.visibility = "visible";
           img.setAttribute("src", "data/images/posts/surface_1.png")
 
           images[0] = "posts/surface_1_cam_0.png";
@@ -136,8 +136,8 @@
           zip.href       = 'data/scenes/scene_2.zip';
           zip.style.visibility = "visible";
           vr_button.style.visibility = "visible";
-          prev.style.visibility = "visible";
-          next.style.visibility = "visible";
+          //prev.style.visibility = "visible";
+          //next.style.visibility = "visible";
           img.setAttribute("src", "data/images/posts/surface_2.png")
 
           images[0] = "posts/surface_2_cam_0.png";
@@ -151,8 +151,8 @@
           zip.href       = 'data/scenes/scene_3.zip';
           zip.style.visibility = "visible";
           vr_button.style.visibility = "visible";
-          prev.style.visibility = "visible";
-          next.style.visibility = "visible";
+          //prev.style.visibility = "visible";
+          //next.style.visibility = "visible";
           img.setAttribute("src", "data/images/posts/surface_3.png")
 
           images[0] = "posts/surface_3_cam_0.png";
@@ -166,8 +166,8 @@
           zip.href       = 'data/scenes/scene_4.zip';
           zip.style.visibility = "visible";
           vr_button.style.visibility = "visible";
-          prev.style.visibility = "visible";
-          next.style.visibility = "visible";
+          //prev.style.visibility = "visible";
+          //next.style.visibility = "visible";
           img.setAttribute("src", "data/images/posts/surface_4.png")
 
           images[0] = "posts/surface_4_cam_0.png";
@@ -181,8 +181,8 @@
           zip.href       = 'data/scenes/scene_5.zip';
           zip.style.visibility = "visible";
           vr_button.style.visibility = "visible";
-          prev.style.visibility = "visible";
-          next.style.visibility = "visible";
+          //prev.style.visibility = "visible";
+          //next.style.visibility = "visible";
           img.setAttribute("src", "data/images/posts/surface_5.png")
 
           images[0] = "posts/surface_5_cam_0.png";
@@ -212,12 +212,12 @@
 
   <!-- Menu -->
   <div id="info">
-    <button onclick="showPost(1)">Surface 1</button>
-    <button onclick="showPost(2)">Surface 2</button>
-    <button onclick="showPost(3)">Surface 3</button>
-    <button onclick="showPost(4)">Surface 4</button>
-    <button onclick="showPost(5)">Surface 5</button>
-    <button onclick="showAbout()">About</button>
+    <button onclick="showPost(1)">1</button>
+    <button onclick="showPost(2)">2</button>
+    <button onclick="showPost(3)">3</button>
+    <button onclick="showPost(4)">4</button>
+    <button onclick="showPost(5)">5</button>
+    <button onclick="showAbout()">...</button>
   </div>
 
 	</body>

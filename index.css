@@ -19,6 +19,11 @@ a:hover {
 }
 
 button {
+	width: 35px;
+	height: 35px;
+        font-size: 15px;
+	background-color: #444;
+        color: #ffac13;
 	cursor: pointer;
 	text-transform: uppercase;
 }
@@ -29,7 +34,7 @@ button {
 	width: 100%;
 	padding: 10px;
 	box-sizing: border-box;
-	text-align: center;
+	text-align: right;
 	-moz-user-select: none;
 	-webkit-user-select: none;
 	-ms-user-select: none;
@@ -92,11 +97,11 @@ a, button, input, select {
 }
 
 .lil-gui { 
-  --background-color:rgba(20, 20, 20, 0.6);
-  --widget-color: rgba(75, 75, 75, 0.5);
+	--background-color:rgba(20, 20, 20, 0.6);
+	--widget-color: rgba(75, 75, 75, 0.5);
   --number-color: rgb(102, 189, 30);
   --widget-height: 20px;
-  --padding: 2px;
+	--padding: 2px;
   --font-size: 16px;
   --input-font-size: 16px;
 }
@@ -173,7 +178,7 @@ a, button, input, select {
   display:block;
   position: absolute;
   width:36px;
-  
+  color:#ff0000;  
   opacity:0.6;
   cursor: pointer;
 }
@@ -196,14 +201,14 @@ a, button, input, select {
 
 #zip {
   position: absolute;
-  top: 14px;
-  right: 85px;
+  bottom: 52px;
+  right: 50px;
 }
 
 #vr_button{
   position: absolute;
-  top: 16px;
-  right: 45px;
+  bottom: 50px;
+  left: 15px;
 }
 
 /*
