@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4BTQWYDYSB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-4BTQWYDYSB');
+    </script>
+
+    <title>POV-Render</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="expires" content="timestamp">
+    <link type="text/css" rel="stylesheet" href="index.css">
+  </head>
+
+  <body>
+    <!-- About (old browsers ?)  -->
+    <dialog id="about">
+      <div style="font-size: 24px; color:#ff9127">POV Renderer</div>
+      <p>Remote rendering of POV scenes.</p>
+      <p>Code: <a href="https://github.com/syanenko/zxr">GitHub</a><br>Contact: <a href="https://www.linkedin.com/in/sergey-yanenko-57b21a96/">LinkedIn</a></p>
+      <form method="dialog" style="text-align:center">
+        <button>&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;</button>
+      </form>
+    </dialog>
+
+    <div id='logo' onclick="about.showModal()">POV Renderer</div>
+    <div id="model_name" style='z-index:2'>[Demo scene]</div>
+    <!-- Render -->
+    <div id="container" style='height: 100vh; width: 100%; position: absolute; z-index:1'></div>
+    <!-- Video
+    <video id="video" style='transform: translate(-50%, -50%);  position: absolute;  top: 50%; left: 50%; display:none; object-fit: fill;' playsinline></video>
+    -->
+    <video id="video" style='height:100vh; width:100%; position:absolute; z-index:0; visibility:hidden' playsinline></video>
+    <input id="video_button" type="image" src="./data/icons/outline_videocam_white_48dp.png" style='z-index:2'/>
+    <script>
+      vb = document.getElementById("video_button");
+      vb.onmouseenter = function () {
+        vb.style.opacity = '1.0';
+      };
+
+      vb.onmouseleave = function () {
+        vb.style.opacity = '0.5';
+      };
+    </script>
+
+    <input id="upload_button" type="image" src="./data/icons/outline_file_upload_white_48dp.png", style='z-index:2'/>
+    <script>
+      ub = document.getElementById("upload_button");
+      ub.onmouseenter = function () {
+        ub.style.opacity = '1.0';
+      };
+
+      ub.onmouseleave = function () {
+        ub.style.opacity = '0.5';
+      };
+
+      ub.onclick = function() { let form = document.getElementById("form_upload");
+                                form.style.visibility == "visible" ? form.style.visibility = 'hidden': form.style.visibility = "visible"; }
+    </script>
+
+    <!-- Imports
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./three/three.module.js",
+          "three/addons/": "./three/jsm/"
+        }
+      }
+    </script>
+    -->
+    <script type="module" src="index.js"></script>
+    
+    <!-- Upload scene -->
+    <div id="form_upload">
+      <form encType="multipart/form-data" style="text-align:left">
+          <h3>Upload scene</h3>
+        Geometry&nbsp;<input type="file" name="model" accept=".obj"/><br/>
+        Texture&nbsp;&nbsp;<input type="file" name="texture" accept=".bmp,.png,.jpeg,.jpg"/><br/>
+        Normals&nbsp;&nbsp;<input type="file" name="normals" accept=".bmp,.png,.jpeg,.jpg"/><br/><br/>
+        <input type="submit"  value="Upload" style="margin-left:80px"/>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="button"  value="Cancel" onclick="parentElement.parentElement.style.visibility = 'hidden'"/>
+      </form>
+    </duv>
+
+    <script>
+      var form = document.getElementById('form_upload');
+
+      // Add a submit event listener to the form
+      form.addEventListener('submit', function(e) {
+        // Prevent the default form submission behavior
+        e.preventDefault();
+
+        // Create a new FormData object
+        var formData = new FormData();
+
+        // Get the selected file
+        var model   = form.querySelector('[name="model"]'  ).files[0];
+        var texture = form.querySelector('[name="texture"]').files[0];
+        var normals = form.querySelector('[name="normals"]').files[0];
+
+        // Add the file to the FormData object
+        formData.append('model',   model);
+        formData.append('texture', texture);
+        formData.append('normals', normals);
+
+        // Display model name
+        var model_name = document.getElementById('model_name'); 
+        model_name.innerHTML ='[' + model.name + ']';
+   
+        // Create an XMLHttpRequest object
+        var xhr = new XMLHttpRequest();
+
+        // Set the request url - check it before publishing
+        // xhr.open('POST', 'http://localhost:3000/render/render_pov.php');
+        xhr.open('POST', 'https:///povlab.online/render/render_pov.php');
+
+        // Set the request as asynchronous
+        xhr.responseType = 'json';
+
+        // Set the request onload event listener
+        xhr.onload = function() {
+          if (xhr.status === 200) {
+            // Render here 
+//            window.loadModel({model:xhr.response});
+           
+          } else {
+            // There was an error uploading the image
+            console.error(xhr.response);
+          }
+        }
+        // Send the request
+        xhr.send(formData);
+        form.style.visibility = 'hidden';
+      });
+    </script>
+
+  </body>
+</html>

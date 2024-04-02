@@ -1,0 +1,135 @@
+html, body {
+	margin: 0;
+	background-image: linear-gradient(rgb(0, 0, 0), rgb(88, 88, 88));
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+	background-color: #000;
+	color: #fff;
+  font-family: Monospace;
+	font-size: 13px;
+	line-height: 24px;
+	overscroll-behavior: none;
+  overflow: hidden;
+}
+
+a {
+	color: #ff0;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+#logo {
+  top: 3px;
+  left: 10px;
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	text-align: left;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+  font-size: 200%;
+  color: #ff9127;
+  z-index: 2;
+  cursor: pointer;
+}
+
+a, button, input, select {
+	pointer-events: auto;
+}
+
+@media all and ( max-width: 640px ) {
+	.lil-gui.root { 
+		right: auto;
+		top: auto;
+		max-height: 50%;
+		max-width: 80%;
+		bottom: 0;
+		left: 0;
+	}
+}
+
+#model_name {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  /* color: #ff9127; */
+  color:rgba(255, 255, 255, 0.5);
+  margin: 10px;
+  font-size: 160%;
+}
+
+#video_button {
+  position:absolute;
+  right:15px;
+  bottom:60px;
+  opacity:0.5
+}
+
+#upload_button {
+  position:absolute;
+  right:17px;
+  bottom:10px;
+  opacity:0.5
+}
+
+.lil-gui {
+  --background-color:rgba(44, 44, 44, 0.6);
+  --title-background-color:rgba(44, 44, 44, 0.6);
+  --widget-color: rgba(75, 75, 75, 0.7);
+  --number-color: #ff9127;
+  --title-text-color: #ff9127;
+  --text-color: rgb(190, 190, 190);
+  --name-width: 20%;
+  --widget-height: 24px;
+  --slider-knob-width: 5px;
+  --slider-input-width: 60px;
+  --slider-input-min-width: 60x;
+  --font-size: 16px;
+  --input-font-size: 16px;
+  --font-family: Monospace;
+  z-index: 2 !important;
+}
+
+#about
+{
+  width: 500px;
+
+  -moz-box-shadow: 5px 5px 7px #535353;
+  -webkit-box-shadow: 5px 5px 7px #535353;
+  box-shadow: 5px 5px 7px #535353;
+
+  -moz-border-radius: 8px 8px 8px 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px 8px 8px 8px;
+
+  border-width: 0px;
+  font-size: 16px;
+  color:rgba(255, 255, 255, 0.8);
+  background-color:rgba(75, 75, 75, 0.8);
+
+  padding: 20px;
+  padding-top: 30px;
+  padding-left: 40px;
+}
+
+#form_upload {
+  position: absolute;
+  top: calc(50vh - 200px);
+  left: calc(50vw - 100px); 
+  border-radius: 4px;
+  color: #ff9127;
+  background-color:rgba(75, 75, 75, 0.7);
+  font-size: 16px;
+  padding: 30px;
+  padding-top: 20px;
+  padding-left: 40px;
+  visibility: hidden;
+  z-index: 999;
+}
