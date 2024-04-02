@@ -133,3 +133,18 @@ a, button, input, select {
   visibility: hidden;
   z-index: 999;
 }
+
+textarea {
+  resize: none;
+  position: absolute;
+  top: 120px;
+  left: 20px;
+  width: 600px;
+  height: 800px;
+  direction: ltr;
+  color: #00db00;
+  background:#0a0a0a;
+  font-family: Monospace;
+  font-size: 17px;
+  z-index:2
+}
