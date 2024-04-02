@@ -96,7 +96,7 @@ send.addEventListener("click", async () => {
       </form>
     </dialog>
 
-    <div id="model_name" style='z-index:2'>[Demo scene]</div>
+    <div id="scene_name" style='z-index:2'>[Demo scene]</div>
     <!-- Render -->
     <div id="container" style='height: 100vh; width: 100%; position: absolute; z-index:1'></div>
 
@@ -157,9 +157,7 @@ send.addEventListener("click", async () => {
     <div id="form_upload">
       <form encType="multipart/form-data" style="text-align:left">
           <h3>Upload scene</h3>
-        Geometry&nbsp;<input type="file" name="model" accept=".obj"/><br/>
-        Texture&nbsp;&nbsp;<input type="file" name="texture" accept=".bmp,.png,.jpeg,.jpg"/><br/>
-        Normals&nbsp;&nbsp;<input type="file" name="normals" accept=".bmp,.png,.jpeg,.jpg"/><br/><br/>
+        Geometry&nbsp;<input type="file" name="scene" accept=".obj"/><br/>
         <input type="submit"  value="Upload" style="margin-left:80px"/>&nbsp;&nbsp;&nbsp;&nbsp;
         <input type="button"  value="Cancel" onclick="parentElement.parentElement.style.visibility = 'hidden'"/>
       </form>
@@ -177,18 +175,14 @@ send.addEventListener("click", async () => {
         var formData = new FormData();
 
         // Get the selected file
-        var model   = form.querySelector('[name="model"]'  ).files[0];
-        var texture = form.querySelector('[name="texture"]').files[0];
-        var normals = form.querySelector('[name="normals"]').files[0];
+        var scene = form.querySelector('[name="scene"]'  ).files[0];
 
         // Add the file to the FormData object
-        formData.append('model',   model);
-        formData.append('texture', texture);
-        formData.append('normals', normals);
+        formData.append('scene', scene);
 
         // Display model name
-        var model_name = document.getElementById('model_name'); 
-        model_name.innerHTML ='[' + model.name + ']';
+        var scene_name = document.getElementById('scene_name'); 
+        scene_name.innerHTML ='[' + scene.name + ']';
    
         // Create an XMLHttpRequest object
         var xhr = new XMLHttpRequest();
@@ -203,9 +197,8 @@ send.addEventListener("click", async () => {
         // Set the request onload event listener
         xhr.onload = function() {
           if (xhr.status === 200) {
-            // Render here 
-//            window.loadModel({model:xhr.response});
-           
+            // Disaply image
+            console.log(xhr.response);           
           } else {
             // There was an error uploading the image
             console.error(xhr.response);
