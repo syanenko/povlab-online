@@ -69,14 +69,14 @@ plane {
 sphere { <0,0,1.5>, 1 texture {T_Stone1} }
 </textarea>
 
-<button id="send" style="position:absolute; left:200px; bottom:10px; z-index:2;">Upload</button>
+<button id="upload_code" style="position:absolute; left:200px; bottom:10px; width:120px; z-index:2;">Upload</button>
 <script>
-const send = document.querySelector("#send");
+const send = document.querySelector("#upload_code");
 send.addEventListener("click", async () => {
   const formData = new FormData();
   const editor = document.querySelector("#editor");  
   const blob = new Blob([editor.innerHTML], { type: "text/xml" });
-  formData.append("model", blob, 'scene.pov');
+  formData.append("scene", blob, 'scene.pov');
 
   const response = await fetch("https://povlab.online/render/render_pov.php", {
     method: "POST",
