@@ -25,7 +25,7 @@
     <div id='header'></div>
     <div id='name'>Renderer</div>
 
-    <textarea id="editor" class="hb-text-editor" style="position: absolute; top: 120px; left: 10px; width: 600px; height: 800px; direction: ltr; color: #ddd; background:#222; font-size: 16px; z-index:2">
+    <textarea id="editor">
 //EXAMPLE OF SPHERE
 
 //Files with predefined colors and textures
@@ -69,7 +69,24 @@ plane {
 sphere { <0,0,1.5>, 1 texture {T_Stone1} }
 </textarea>
 
-    <!-- About (old browsers ?)  -->
+<button id="send" style="position:absolute; left:200px; bottom:10px; z-index:2;">Upload</button>
+<script>
+const send = document.querySelector("#send");
+send.addEventListener("click", async () => {
+  const formData = new FormData();
+  const editor = document.querySelector("#editor");  
+  const blob = new Blob([editor.innerHTML], { type: "text/xml" });
+  formData.append("model", blob, 'scene.pov');
+
+  const response = await fetch("https://povlab.online/render/render_pov.php", {
+    method: "POST",
+    body: formData,
+  });
+  console.log(await response.json());
+});
+</script>
+
+    <!-- About -->
     <dialog id="about">
       <div style="font-size: 24px; color:#ff9127">POV Renderer</div>
       <p>Remote rendering of POV scenes.</p>
@@ -78,7 +95,6 @@ sphere { <0,0,1.5>, 1 texture {T_Stone1} }
         <button>&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;</button>
       </form>
     </dialog>
-
 
     <div id="model_name" style='z-index:2'>[Demo scene]</div>
     <!-- Render -->
@@ -179,7 +195,7 @@ sphere { <0,0,1.5>, 1 texture {T_Stone1} }
 
         // Set the request url - check it before publishing
         // xhr.open('POST', 'http://localhost:3000/render/render_pov.php');
-        xhr.open('POST', 'https:///povlab.online/render/render_pov.php');
+        xhr.open('POST', 'https://povlab.online/render/render_pov.php');
 
         // Set the request as asynchronous
         xhr.responseType = 'json';
