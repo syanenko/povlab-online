@@ -11,7 +11,7 @@
       gtag('config', 'G-4BTQWYDYSB');
     </script>
 
-    <title>POV-Render</title>
+    <title>POV-Lab</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <meta http-equiv="Pragma" content="no-cache">
@@ -43,45 +43,50 @@
 
   <form id="form_upload_code" encType="multipart/form-data" style="text-align:left">
     <textarea id="editor">
-  /*
-      #include "colors.inc"
-      #include "glass.inc"
-      #include "golds.inc"
-      #include "metals.inc"
-      #include "stones.inc"
-      #include "woods.inc"
-  */
-      camera {
-        sky <0,0,1>
-        direction <-1,0,0>
-        right <-4/3,0,0>
-        location <30,10,1.5>
-        look_at <0,0,1>
-        angle 10
-      }
+    /*
+        #include "colors.inc"
+        #include "glass.inc"
+        #include "golds.inc"
+        #include "metals.inc"
+        #include "stones.inc"
+        #include "woods.inc"
+    */
+    camera {
+      sky <0,0,1>
+      direction <-1,0,0>
+      right <-4/3,0,0>
+      location <30,10,1.5>
+      look_at <0,0,1>
+      angle 10
+    }
 
-      global_settings { ambient_light color rgb< 1.0, 1.0, 1.0> }
+    global_settings { ambient_light color rgb< 1.0, 1.0, 1.0> }
 
-      light_source {
-        <10,-10,20>
-        color rgb< 1.0, 1.0, 1.0> * 2
-      }
+    light_source {
+      <4,-20,20>
+      color rgb< 1.0, 1.0, 1.0> * 2
+    }
 
-      background { color <0, 0, 0> }
-      plane {
-        <0,0,1>, 0
-        texture { pigment{ color rgb<0.4, 0.4, 0.4> }
-                finish { phong 1 reflection 0.00}
-              }
-      }
+    light_source {
+      <1,2,2>
+      color rgb< 1.0, 1.0, 1.0> * 2
+      spotlight
+    }
 
-      sphere { <0,0,1.5>, 1
-          texture { pigment{ color rgb< 0.5, 0.2, 0.0> }
-                    finish { phong 1 reflection 0.00}
-                  }
-      }
+    background { color <0, 0, 0> }
+    plane {
+      <0,0,1>, 0
+      texture { pigment{ color rgb<0.4, 0.4, 0.4> }
+              finish { phong 1 reflection 0.00}
+            }
+    }
+
+    sphere { <0,0,1.5>, 1
+        texture { pigment{ color rgb< 0.5, 0.2, 0.0> }
+                  finish { phong 1 reflection 0.00}
+                }
+    }
     </textarea>
-
     <input type="submit" value="Render [Ctrl-S]" id="upload_code" style="position:absolute; left:260px; bottom:10px; width:120px; z-index:2;" /> 
   </form>
 

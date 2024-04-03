@@ -236,25 +236,6 @@ a, button, input, select {
   opacity: 0.75;
 }
 
-#about
-{
-   width: 600px;
-
-  -moz-box-shadow: 5px 5px 7px #535353;
-  -webkit-box-shadow: 5px 5px 7px #535353;
-  box-shadow: 5px 5px 7px #535353;
-
-  -moz-border-radius: 8px 8px 8px 8px;
-  -webkit-border-radius: 8px;
-  border-radius: 8px 8px 8px 8px;
-
-  border-width: 0px;
-  font-size: 18px;
-  opacity: 0.50;
-  color:rgb(255, 255, 255);
-  background-color: rgb(0,0,0);
-}
-
 /* TODO: ~200px for 16:9 */
 /*
   max-height: 850px;
@@ -362,7 +343,7 @@ a, button, input, select {
 
 #about
 {
-  width: 500px;
+   width: 600px;
 
   -moz-box-shadow: 5px 5px 7px #535353;
   -webkit-box-shadow: 5px 5px 7px #535353;
@@ -373,14 +354,16 @@ a, button, input, select {
   border-radius: 8px 8px 8px 8px;
 
   border-width: 0px;
-  font-size: 16px;
-  color:rgba(255, 255, 255, 0.8);
-  background-color:rgba(75, 75, 75, 0.8);
+  font-size: 18px;
+  opacity: 0.45;
+  color:rgb(255, 255, 255);
+  background-color: rgb(0,0,0);
 
   padding: 20px;
   padding-top: 30px;
   padding-left: 40px;
 }
+
 
 #form_upload {
   position: absolute;
@@ -416,5 +399,5 @@ textarea {
 {
   position: absolute;
   top:  calc(50vh - 330px);
-  left: calc(50vw - 210px);
+  left: calc(50vw - 220px);
 }
