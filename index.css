@@ -302,8 +302,8 @@ a, button, input, select {
 
 #scene_name {
   position: absolute;
-  right: 10px;
-  top: 80px;
+  right: 6px;
+  top: 10px;
   color:rgba(255, 255, 255, 0.5);
   margin: 10px;
   font-size: 160%;
@@ -385,7 +385,7 @@ a, button, input, select {
   position: absolute;
   top: 95px;
   left: 20px;
-  width: 650px;
+  width: 750px;
   height: 850px;
   direction: ltr;
   color: #ccc;
@@ -399,7 +399,7 @@ a, button, input, select {
 {
   position: absolute;
   top:  calc(50vh - 330px);
-  left: calc(50vw - 200px);
+  left: calc(50vw - 150px);
 }
 
 #upload_code
@@ -412,4 +412,17 @@ a, button, input, select {
   width:124px;
   height:34px;
   z-index:2;
+}
+
+#about_button
+{
+  visibility: hidden;
+
+  font-family: Monospace;
+  font-size: 145%;
+  position:absolute;
+  right:40px;
+  top:15px;
+  background-color:#000;
+  font-style: italic;"
 }
