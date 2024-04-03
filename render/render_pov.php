@@ -14,7 +14,7 @@ move_uploaded_file($_FILES['scene']["tmp_name"], $model_path);
 
 $pov_in   = $UPLOADS_DIR . $_FILES['scene']['name'];
 $pov_out  = $UPLOADS_DIR . 'scene.png';
-$pov_keys = ' -W640 -H480 +A0.0 +J +R4';
+$pov_keys = ' -W640 -H480 +A0.0 +J +R4 ';
 $command='./povray -i' . $pov_in . ' -o' . $pov_out . $pov_keys . '2>&1';
 // echo json_encode($command);
 $output=null;
