@@ -39,66 +39,94 @@
   </script>
 
   <div id='name'>Renderer</div>
-
-  <textarea id="editor">
-/*
-    #include "colors.inc"
-    #include "glass.inc"
-    #include "golds.inc"
-    #include "metals.inc"
-    #include "stones.inc"
-    #include "woods.inc"
-*/
-    #include "colors.inc"
-
-    camera {
-      sky <0,0,1>
-      direction <-1,0,0>
-      right <-4/3,0,0>
-      location <30,10,1.5>
-      look_at <0,0,0.5>
-      angle 15
-    }
-
-    global_settings { ambient_light White }
-
-    light_source {
-      <10,-10,20>
-      color White*2
-    }
-
-    background { color Black }
-    plane {
-      <0,0,1>, 0
-      texture { pigment{ color rgb<0.4, 0.4, 0.4> }
-               finish { phong 1 reflection 0.00}
-             }
-    }
-
-    sphere { <0,0,1.5>, 1
-         texture { pigment{ color rgb< 0.2, 0.5, 0.0> }
-                   finish { phong 1 reflection 0.00}
-                 }
-    }
-  </textarea>
-
-  <!-- Upload
-    <form>
-        <input type="button" value="Change" id="submitChange" disabled /> 
-          <textarea id="textChange" rows="10" cols="30"> Write something here </textarea>
-    </form>
-
-    <img id='result' src="https://povlab.online/render/uploads/4efd207a26a55b147c8e3045269e8264b97891dd/scene.png" alt="Rendering result">
-  -->
   <img id='result' alt="Rendering result">
 
-  <!-- Upload -->
-  <button id="upload_code" style="position:absolute; left:260px; bottom:10px; width:120px; z-index:2;">Upload</button>
+  <form id="form_upload_code" encType="multipart/form-data" style="text-align:left">
+    <textarea id="editor">
+  /*
+      #include "colors.inc"
+      #include "glass.inc"
+      #include "golds.inc"
+      #include "metals.inc"
+      #include "stones.inc"
+      #include "woods.inc"
+  */
+      camera {
+        sky <0,0,1>
+        direction <-1,0,0>
+        right <-4/3,0,0>
+        location <30,10,1.5>
+        look_at <0,0,0.5>
+        angle 15
+      }
+
+      global_settings { ambient_light color rgb< 1.0, 1.0, 1.0> }
+
+      light_source {
+        <10,-10,20>
+        color rgb< 1.0, 1.0, 1.0> * 2
+      }
+
+      background { color <0, 0, 0> }
+      plane {
+        <0,0,1>, 0
+        texture { pigment{ color rgb<0.4, 0.4, 0.4> }
+                finish { phong 1 reflection 0.00}
+              }
+      }
+
+      sphere { <0,0,1.5>, 1
+          texture { pigment{ color rgb< 0.5, 0.2, 0.0> }
+                    finish { phong 1 reflection 0.00}
+                  }
+      }
+    </textarea>
+
+    <input type="submit" value="Upload" id="upload_code" style="position:absolute; left:260px; bottom:10px; width:120px; z-index:2;" /> 
+  </form>
+
   <script>
-    const send = document.querySelector("#upload_code");
+    var form = document.getElementById('form_upload_code');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      var formData = new FormData();
+      const editor  = document.getElementById("editor")
+      const blob = new Blob([editor.value], { type: "text/plain" });
+      formData.append("scene", blob, 'scene.pov');
+
+      // Display model name
+      /*/
+      var scene_name = document.getElementById('scene_name'); 
+      scene_name.innerHTML ='[' + scene.name + ']';
+      */
+      var xhr = new XMLHttpRequest();
+
+      // Check before deploy !
+      // xhr.open('POST', 'http://localhost:8083/render/render_pov.php');
+      xhr.open('POST', 'https://povlab.online/render/render_pov.php');
+
+      xhr.responseType = 'json';
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          console.log(xhr.response);           
+          document.getElementById("result").src = "https://povlab.online/render/" + xhr.response;
+        } else {
+          console.error(xhr.response);
+        }
+      }
+      xhr.send(formData);
+    });
+  </script>
+
+<!--
+  <script>
+    const send  = document.getElementById("upload_code")
     send.addEventListener("click", async () => {
       const formData = new FormData();
-      const editor = document.querySelector("#editor");  
+      const editor  = document.getElementById("editor")
+      console.log(editor.textContent); // DEBUG !
       const blob = new Blob([editor.textContent], { type: "text/plain" });
       formData.append("scene", blob, 'scene.pov');
 
@@ -115,7 +143,7 @@
       });
     });
   </script>
-
+-->
   <div id="scene_name" style='z-index:2'>[Demo scene]</div>
   <!-- Render -->
   <div id="container" style='height: 100vh; width: 100%; position: absolute; z-index:-1'></div>
@@ -170,7 +198,7 @@
       <input type="submit"  value="Upload" style="margin-left:80px"/>&nbsp;&nbsp;&nbsp;&nbsp;
       <input type="button"  value="Cancel" onclick="parentElement.style.visibility = 'hidden'"/>
     </form>
-  </duv>
+  </div>
 
   <script>
     var form = document.getElementById('form_upload');
