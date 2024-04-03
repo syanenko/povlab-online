@@ -93,6 +93,8 @@ send.addEventListener("click", async () => {
   const blob = new Blob([editor.innerHTML], { type: "text/xml" });
   formData.append("scene", blob, 'scene.pov');
 
+  // Check befor deploy ! 
+  //const response = await fetch("http://localhost:8083/render/render_pov.php", {
   const response = await fetch("https://povlab.online/render/render_pov.php", {
     method: "POST",
     body: formData,
@@ -193,8 +195,8 @@ send.addEventListener("click", async () => {
         // Create an XMLHttpRequest object
         var xhr = new XMLHttpRequest();
 
-        // Set the request url - check it before publishing
-        // xhr.open('POST', 'http://localhost:3000/render/render_pov.php');
+        // Check before deploy !
+        // xhr.open('POST', 'http://localhost:8083/render/render_pov.php');
         xhr.open('POST', 'https://povlab.online/render/render_pov.php');
 
         // Set the request as asynchronous
