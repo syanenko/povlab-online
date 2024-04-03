@@ -38,185 +38,172 @@
     }
   </script>
 
-    <div id='name'>Renderer</div>
+  <div id='name'>Renderer</div>
 
-    <textarea id="editor">
-//EXAMPLE OF SPHERE
+  <textarea id="editor">
+/*
+    #include "colors.inc"
+    #include "glass.inc"
+    #include "golds.inc"
+    #include "metals.inc"
+    #include "stones.inc"
+    #include "woods.inc"
+*/
+    #include "colors.inc"
 
-//Files with predefined colors and textures
-#include "colors.inc"
-#include "glass.inc"
-#include "golds.inc"
-#include "metals.inc"
-#include "stones.inc"
-#include "woods.inc"
+    camera {
+      sky <0,0,1>
+      direction <-1,0,0>
+      right <-4/3,0,0>
+      location <30,10,1.5>
+      look_at <0,0,0.5>
+      angle 15
+    }
 
-//Place the camera
-camera {
-  sky <0,0,1>           //Don't change this
-  direction <-1,0,0>    //Don't change this  
-  right <-4/3,0,0>      //Don't change this
-  location <30,10,1.5> //Camera location
-  look_at <0,0,0>     //Where camera is pointing
-  angle 15      //Angle of the view--increase to see more, decrease to see less
-}
+    global_settings { ambient_light White }
 
-//Ambient light to "brighten up" darker pictures
-global_settings { ambient_light White }
+    light_source {
+      <10,-10,20>
+      color White*2
+    }
 
-//Place a light--you can have more than one!
-light_source {
-  <10,-10,20>   //Change this if you want to put the light at a different point
-  color White*2         //Multiplying by 2 doubles the brightness
-}
+    background { color Black }
+    plane {
+      <0,0,1>, 0
+      texture { pigment{ color rgb<0.4, 0.4, 0.4> }
+               finish { phong 1 reflection 0.00}
+             }
+    }
 
-//Set a background color
-background { color White }
+    sphere { <0,0,1.5>, 1
+         texture { pigment{ color rgb< 0.2, 0.5, 0.0> }
+                   finish { phong 1 reflection 0.00}
+                 }
+    }
+  </textarea>
 
-//Create a "floor"
-plane {
-  <0,0,1>, 0            //This represents the plane 0x+0y+z=0
-  texture { T_Silver_3A }       //The texture comes from the file "metals.inc"
-}
+  <!-- Upload -->
+  <button id="upload_code" style="position:absolute; left:260px; bottom:10px; width:120px; z-index:2;">Upload</button>
+  <script>
+    const send = document.querySelector("#upload_code");
+    send.addEventListener("click", async () => {
+      const formData = new FormData();
+      const editor = document.querySelector("#editor");  
+      const blob = new Blob([editor.textContent], { type: "text/plain" });
+      formData.append("scene", blob, 'scene.pov');
 
-//Sphere with specified center point and radius
-//The texture comes from the file "stones.inc"
-sphere { <0,0,1.5>, 1 texture {T_Stone1} }
-</textarea>
+      // Check befor deploy ! 
+      //const response = await fetch("http://localhost:8083/render/render_pov.php", {
+      const response = await fetch("https://povlab.online/render/render_pov.php", {
+        method: "POST",
+        body: formData,
+      });
+      console.log(await response.json());
+    });
+  </script>
 
-<button id="upload_code" style="position:absolute; left:260px; bottom:10px; width:120px; z-index:2;">Upload</button>
-<script>
-const send = document.querySelector("#upload_code");
-send.addEventListener("click", async () => {
-  const formData = new FormData();
-  const editor = document.querySelector("#editor");  
-  const blob = new Blob([editor.innerHTML], { type: "text/xml" });
-  formData.append("scene", blob, 'scene.pov');
+  <div id="scene_name" style='z-index:2'>[Demo scene]</div>
+  <!-- Render -->
+  <div id="container" style='height: 100vh; width: 100%; position: absolute; z-index:-1'></div>
 
-  // Check befor deploy ! 
-  //const response = await fetch("http://localhost:8083/render/render_pov.php", {
-  const response = await fetch("https://povlab.online/render/render_pov.php", {
-    method: "POST",
-    body: formData,
-  });
-  console.log(await response.json());
-});
-</script>
+  <!-- Video
+  <video id="video" style='transform: translate(-50%, -50%);  position: absolute;  top: 50%; left: 50%; display:none; object-fit: fill;' playsinline></video>
+  -->
+  <video id="video" style='height:100vh; width:100%; position:absolute; z-index:0; visibility:hidden' playsinline></video>
+  <input id="video_button" type="image" src="./data/icons/outline_videocam_white_48dp.png" style='z-index:2'/>
+  <script>
+    vb = document.getElementById("video_button");
+    vb.onmouseenter = function () {
+      vb.style.opacity = '1.0';
+    };
 
-    <!-- About
-    <dialog id="about">
-      <div style="font-size: 24px; color:#ff9127">POV Renderer</div>
-      <p>Remote rendering of POV scenes.</p>
-      <p>Code: <a href="https://github.com/syanenko/zxr">GitHub</a><br>Contact: <a href="https://www.linkedin.com/in/sergey-yanenko-57b21a96/">LinkedIn</a></p>
-      <form method="dialog" style="text-align:center">
-        <button>&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;</button>
-      </form>
-    </dialog>
-    -->
+    vb.onmouseleave = function () {
+      vb.style.opacity = '0.5';
+    };
+  </script>
 
-    <div id="scene_name" style='z-index:2'>[Demo scene]</div>
-    <!-- Render -->
-    <div id="container" style='height: 100vh; width: 100%; position: absolute; z-index:-1'></div>
+  <input id="upload_button" type="image" src="./data/icons/outline_file_upload_white_48dp.png", style='z-index:2'/>
+  <script>
+    ub = document.getElementById("upload_button");
+    ub.onmouseenter = function () {
+      ub.style.opacity = '1.0';
+    };
 
-    <!-- Video
-    <video id="video" style='transform: translate(-50%, -50%);  position: absolute;  top: 50%; left: 50%; display:none; object-fit: fill;' playsinline></video>
-    -->
-    <video id="video" style='height:100vh; width:100%; position:absolute; z-index:0; visibility:hidden' playsinline></video>
-    <input id="video_button" type="image" src="./data/icons/outline_videocam_white_48dp.png" style='z-index:2'/>
-    <script>
-      vb = document.getElementById("video_button");
-      vb.onmouseenter = function () {
-        vb.style.opacity = '1.0';
-      };
+    ub.onmouseleave = function () {
+      ub.style.opacity = '0.5';
+    };
 
-      vb.onmouseleave = function () {
-        vb.style.opacity = '0.5';
-      };
-    </script>
+    ub.onclick = function() { let form = document.getElementById("form_upload");
+                              form.style.visibility == "visible" ? form.style.visibility = 'hidden': form.style.visibility = "visible"; }
+  </script>
+  <!-- Import Three
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./three/three.module.js",
+        "three/addons/": "./three/jsm/"
+      }
+    }
+  </script>
+  -->
+  <script type="module" src="index.js"></script>
+  
+  <!-- Upload scene -->
+  <div id="form_upload">
+    <form encType="multipart/form-data" style="text-align:left">
+        <h3>Upload scene</h3>
+      Geometry&nbsp;<input type="file" name="scene" accept=".obj"/><br/>
+      <input type="submit"  value="Upload" style="margin-left:80px"/>&nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="button"  value="Cancel" onclick="parentElement.parentElement.style.visibility = 'hidden'"/>
+    </form>
+  </duv>
 
-    <input id="upload_button" type="image" src="./data/icons/outline_file_upload_white_48dp.png", style='z-index:2'/>
-    <script>
-      ub = document.getElementById("upload_button");
-      ub.onmouseenter = function () {
-        ub.style.opacity = '1.0';
-      };
+  <script>
+    var form = document.getElementById('form_upload');
 
-      ub.onmouseleave = function () {
-        ub.style.opacity = '0.5';
-      };
+    // Add a submit event listener to the form
+    form.addEventListener('submit', function(e) {
+      // Prevent the default form submission behavior
+      e.preventDefault();
 
-      ub.onclick = function() { let form = document.getElementById("form_upload");
-                                form.style.visibility == "visible" ? form.style.visibility = 'hidden': form.style.visibility = "visible"; }
-    </script>
+      // Create a new FormData object
+      var formData = new FormData();
 
-    <!-- Imports
-    <script type="importmap">
-      {
-        "imports": {
-          "three": "./three/three.module.js",
-          "three/addons/": "./three/jsm/"
+      // Get the selected file
+      var scene = form.querySelector('[name="scene"]'  ).files[0];
+
+      // Add the file to the FormData object
+      formData.append('scene', scene);
+
+      // Display model name
+      var scene_name = document.getElementById('scene_name'); 
+      scene_name.innerHTML ='[' + scene.name + ']';
+  
+      // Create an XMLHttpRequest object
+      var xhr = new XMLHttpRequest();
+
+      // Check before deploy !
+      // xhr.open('POST', 'http://localhost:8083/render/render_pov.php');
+      xhr.open('POST', 'https://povlab.online/render/render_pov.php');
+
+      // Set the request as asynchronous
+      xhr.responseType = 'json';
+
+      // Set the request onload event listener
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          // Disaply image
+          console.log(xhr.response);           
+        } else {
+          // There was an error uploading the image
+          console.error(xhr.response);
         }
       }
-    </script>
-    -->
-    <script type="module" src="index.js"></script>
-    
-    <!-- Upload scene -->
-    <div id="form_upload">
-      <form encType="multipart/form-data" style="text-align:left">
-          <h3>Upload scene</h3>
-        Geometry&nbsp;<input type="file" name="scene" accept=".obj"/><br/>
-        <input type="submit"  value="Upload" style="margin-left:80px"/>&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="button"  value="Cancel" onclick="parentElement.parentElement.style.visibility = 'hidden'"/>
-      </form>
-    </duv>
-
-    <script>
-      var form = document.getElementById('form_upload');
-
-      // Add a submit event listener to the form
-      form.addEventListener('submit', function(e) {
-        // Prevent the default form submission behavior
-        e.preventDefault();
-
-        // Create a new FormData object
-        var formData = new FormData();
-
-        // Get the selected file
-        var scene = form.querySelector('[name="scene"]'  ).files[0];
-
-        // Add the file to the FormData object
-        formData.append('scene', scene);
-
-        // Display model name
-        var scene_name = document.getElementById('scene_name'); 
-        scene_name.innerHTML ='[' + scene.name + ']';
-   
-        // Create an XMLHttpRequest object
-        var xhr = new XMLHttpRequest();
-
-        // Check before deploy !
-        // xhr.open('POST', 'http://localhost:8083/render/render_pov.php');
-        xhr.open('POST', 'https://povlab.online/render/render_pov.php');
-
-        // Set the request as asynchronous
-        xhr.responseType = 'json';
-
-        // Set the request onload event listener
-        xhr.onload = function() {
-          if (xhr.status === 200) {
-            // Disaply image
-            console.log(xhr.response);           
-          } else {
-            // There was an error uploading the image
-            console.error(xhr.response);
-          }
-        }
-        // Send the request
-        xhr.send(formData);
-        form.style.visibility = 'hidden';
-      });
-    </script>
+      // Send the request
+      xhr.send(formData);
+      form.style.visibility = 'hidden';
+    });
+  </script>
 
   </body>
 </html>
