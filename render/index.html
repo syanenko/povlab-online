@@ -163,12 +163,12 @@
   <script type="module" src="index.js"></script>
   
   <!-- Upload scene -->
-  <div id="form_upload">
-    <form encType="multipart/form-data" style="text-align:left">
+  <div>
+    <form id="form_upload" encType="multipart/form-data" style="text-align:left">
         <h3>Upload scene</h3>
-      Geometry&nbsp;<input type="file" name="scene" accept=".obj"/><br/>
+      Geometry&nbsp;<input type="file" name="scene" accept=".pov,.obj"/><br/>
       <input type="submit"  value="Upload" style="margin-left:80px"/>&nbsp;&nbsp;&nbsp;&nbsp;
-      <input type="button"  value="Cancel" onclick="parentElement.parentElement.style.visibility = 'hidden'"/>
+      <input type="button"  value="Cancel" onclick="parentElement.style.visibility = 'hidden'"/>
     </form>
   </duv>
 
@@ -184,7 +184,7 @@
       var formData = new FormData();
 
       // Get the selected file
-      var scene = form.querySelector('[name="scene"]'  ).files[0];
+      var scene = form.querySelector('[name="scene"]').files[0];
 
       // Add the file to the FormData object
       formData.append('scene', scene);
@@ -206,8 +206,8 @@
       // Set the request onload event listener
       xhr.onload = function() {
         if (xhr.status === 200) {
-          // Disaply image
           console.log(xhr.response);           
+          document.getElementById("result").src = "https://povlab.online/render/" + xhr.response;
         } else {
           // There was an error uploading the image
           console.error(xhr.response);
@@ -215,6 +215,7 @@
       }
       // Send the request
       xhr.send(formData);
+      form.reset();
       form.style.visibility = 'hidden';
     });
   </script>
