@@ -82,6 +82,16 @@
     }
   </textarea>
 
+  <!-- Upload
+    <form>
+        <input type="button" value="Change" id="submitChange" disabled /> 
+          <textarea id="textChange" rows="10" cols="30"> Write something here </textarea>
+    </form>
+
+    <img id='result' src="https://povlab.online/render/uploads/4efd207a26a55b147c8e3045269e8264b97891dd/scene.png" alt="Rendering result">
+  -->
+  <img id='result' alt="Rendering result">
+
   <!-- Upload -->
   <button id="upload_code" style="position:absolute; left:260px; bottom:10px; width:120px; z-index:2;">Upload</button>
   <script>
@@ -98,7 +108,11 @@
         method: "POST",
         body: formData,
       });
-      console.log(await response.json());
+     
+      await response.json().then((result) => {
+        console.log(result);
+        document.getElementById("result").src = "https://povlab.online/render/" + result;
+      });
     });
   </script>
 

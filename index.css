@@ -412,3 +412,10 @@ textarea {
   font-size: 16px;
   z-index:2
 }
+
+#result
+{
+  position: absolute;
+  top:  calc(50vh - 240px);
+  left: calc(50vw);
+}
