@@ -321,9 +321,8 @@ a, button, input, select {
 
 #scene_name {
   position: absolute;
-  left: 10px;
-  bottom: 10px;
-  /* color: #ff9127; */
+  right: 10px;
+  top: 80px;
   color:rgba(255, 255, 255, 0.5);
   margin: 10px;
   font-size: 160%;
@@ -417,5 +416,5 @@ textarea {
 {
   position: absolute;
   top:  calc(50vh - 330px);
-  left: calc(50vw - 205px);
+  left: calc(50vw - 210px);
 }
