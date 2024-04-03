@@ -380,15 +380,15 @@ a, button, input, select {
   z-index: 999;
 }
 
-textarea {
+#editor {
   resize: none;
   position: absolute;
   top: 120px;
   left: 20px;
-  width: 600px;
+  width: 650px;
   height: 800px;
   direction: ltr;
-  color: #00db00;
+  color: #ccc;
   background:#0a0a0a;
   font-family: Monospace;
   font-size: 16px;
@@ -400,4 +400,15 @@ textarea {
   position: absolute;
   top:  calc(50vh - 330px);
   left: calc(50vw - 220px);
+}
+
+#upload_code
+{
+  font-size: 115%;
+  position:absolute;
+  left:260px;
+  bottom:10px;
+  width:124px;
+  height:34px;
+  z-index:2;
 }
