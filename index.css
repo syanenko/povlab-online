@@ -416,6 +416,6 @@ textarea {
 #result
 {
   position: absolute;
-  top:  calc(50vh - 340px);
-  left: calc(50vw - 512);
+  top:  calc(50vh - 330px);
+  left: calc(50vw - 205px);
 }
