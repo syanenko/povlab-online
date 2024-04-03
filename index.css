@@ -383,10 +383,10 @@ a, button, input, select {
 #editor {
   resize: none;
   position: absolute;
-  top: 120px;
+  top: 95px;
   left: 20px;
   width: 650px;
-  height: 800px;
+  height: 850px;
   direction: ltr;
   color: #ccc;
   background:#0a0a0a;
@@ -399,11 +399,12 @@ a, button, input, select {
 {
   position: absolute;
   top:  calc(50vh - 330px);
-  left: calc(50vw - 220px);
+  left: calc(50vw - 200px);
 }
 
 #upload_code
 {
+  visibility: hidden; /* DEBUG: - make icon */
   font-size: 115%;
   position:absolute;
   left:260px;
