@@ -16,13 +16,28 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="expires" content="timestamp">
-    <link type="text/css" rel="stylesheet" href="index.css">
+    <link type="text/css" rel="stylesheet" href="/index.css">
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
   </head>
 
   <body>
-    <!-- Header --> 
-    <div id='header'></div>
+  <!-- Header --> 
+  <div id='header'></div>
+  <!-- Insert header -->
+  <script>
+    fetch("/header.html")
+      .then(response => {
+        return response.text()
+      }).then(data => {
+        document.getElementById('header').innerHTML = data;
+      });
+
+    function showAbout()
+    {
+      document.getElementById("about").showModal();
+    }
+  </script>
+
     <div id='name'>Renderer</div>
 
     <textarea id="editor">
@@ -69,7 +84,7 @@ plane {
 sphere { <0,0,1.5>, 1 texture {T_Stone1} }
 </textarea>
 
-<button id="upload_code" style="position:absolute; left:200px; bottom:10px; width:120px; z-index:2;">Upload</button>
+<button id="upload_code" style="position:absolute; left:260px; bottom:10px; width:120px; z-index:2;">Upload</button>
 <script>
 const send = document.querySelector("#upload_code");
 send.addEventListener("click", async () => {
@@ -86,7 +101,7 @@ send.addEventListener("click", async () => {
 });
 </script>
 
-    <!-- About -->
+    <!-- About
     <dialog id="about">
       <div style="font-size: 24px; color:#ff9127">POV Renderer</div>
       <p>Remote rendering of POV scenes.</p>
@@ -95,20 +110,11 @@ send.addEventListener("click", async () => {
         <button>&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;</button>
       </form>
     </dialog>
+    -->
 
     <div id="scene_name" style='z-index:2'>[Demo scene]</div>
     <!-- Render -->
-    <div id="container" style='height: 100vh; width: 100%; position: absolute; z-index:1'></div>
-
-    <!-- Insert header -->
-    <script>
-      fetch("/header.html")
-        .then(response => {
-          return response.text()
-        }).then(data => {
-          document.getElementById('header').innerHTML = data;
-        });
-    </script>
+    <div id="container" style='height: 100vh; width: 100%; position: absolute; z-index:-1'></div>
 
     <!-- Video
     <video id="video" style='transform: translate(-50%, -50%);  position: absolute;  top: 50%; left: 50%; display:none; object-fit: fill;' playsinline></video>

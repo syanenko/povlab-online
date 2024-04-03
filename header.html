@@ -3,11 +3,9 @@
 </head>
 
 <header>
-  <img id='logo' src="/data/images/tech/logo_512x512.png" alt="Logo" onclick="about.showModal()"/>
-  
-  <div id='head' onclick="about.showModal()">POV-Lab</div>
-
-  <div id='slogan' onclick="about.showModal()"
+  <img id='logo' src="/data/images/tech/logo_512x512.png" alt="Logo" onclick="showAbout()"/>
+  <div id='head' onclick="showAbout()">POV-Lab</div>
+  <div id='slogan' onclick="showAbout()"
                    onmouseenter="style.opacity = '1.0'"
                    onmouseleave="style.opacity = '0.6'">Persitence of VR</div>
   <!--
@@ -18,4 +16,20 @@
   -->
   <button onclick="showAbout()" style="font-family: Monospace; font-size: 145%; position:absolute; right:40px; top:15px; background-color:#000; font-style: italic;">About</button>
   <hr id="line">
+
+  <dialog id="about">
+    <br>
+    <div style="font-size: 24px; position:absolute; left:50px; color: #ffac13;">POV-Lab</div>
+    <br><br>
+    <a href="https://povray.org" target="_blank">POV-Ray</a> scenes was rendered by <a href="https://wiki.povray.org/content/User:Le_Forgeron" target="_blank">HgPovray</a> with stereo camera and can be viewed in VR by selecting mask icon it low left corner. Download scene source by selecting download icon.</p>
+    <p>Following tutorials are available online:
+    <a href="https://povlab.online/povtutorial/" target="_blank">Basics</a>,
+    <a href="https://povlab.online/animtutorial/" target="_blank">Animation</a>,
+    <a href="https://povlab.online/isotutorial/" target="_blank">Isosurfaces</a>.</p>
+    <p style='text-align:right'>Contacts: <a href='mailto:syanenko65@gmain.com'>Email</a> / <a href="https://www.linkedin.com/in/sergey-yanenko-57b21a96/" target="_blank">LinkedIn</a>&nbsp;&nbsp;</p>
+    <form method="dialog" style="text-align:center">
+      <button style='width:100px'>OK</button>
+    </form>
+  </dialog>
+
 </header>
