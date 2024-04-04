@@ -32,21 +32,6 @@ button {
 	cursor: pointer;
 }
 
-#posts {
-	position: absolute;
-	bottom: 0px;
-	width: 100%;
-	padding: 10px;
-	box-sizing: border-box;
-	text-align: center;
-	-moz-user-select: none;
-	-webkit-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	pointer-events: none;
-	z-index: 1; /* TODO Solve this in HTML */
-}
-
 a, button, input, select {
 	pointer-events: auto;
 }
@@ -112,23 +97,13 @@ a, button, input, select {
 
 #logo
 {
+  visibility: hidden;
   display:block;
   position: absolute;
-  width:80px;
-  height:80px;
+  width:85px;
+  height:85px;
   top: -10px;
   left: 0px;
-
-/*
-  display:inline-block;
-
-  margin-top: 20px;
-  margin-left: 20px;
-  margin-bottom: 10px;
-  font-size: 230%;
-  font-style: italic;
-  color: #ffac13;
-*/
   cursor: pointer;
 }
 
@@ -136,8 +111,9 @@ a, button, input, select {
 { 
   position: absolute;
   top: 15px;
-  left: 90px;
-  font-size: 150%;
+  left: 15px;
+  font-size: 185%;
+  font-style: italic;
   color: #ffac13;
   cursor: pointer;
 }
@@ -146,11 +122,12 @@ a, button, input, select {
 { 
   position: absolute;
   top: 35px;
-  left: 90px;
-  font-size: 110%;
+  left: 15px;
+  font-size: 115%;
   color: #ffffff;
   opacity: 0.6;
   cursor: pointer;
+  font-style: italic;
 }
 
 #line {
@@ -343,7 +320,7 @@ a, button, input, select {
 
 #about
 {
-   width: 600px;
+  width: 600px;
 
   -moz-box-shadow: 5px 5px 7px #535353;
   -webkit-box-shadow: 5px 5px 7px #535353;
@@ -355,13 +332,17 @@ a, button, input, select {
 
   border-width: 0px;
   font-size: 18px;
-  opacity: 0.45;
+  opacity: 0.7;
   color:rgb(255, 255, 255);
   background-color: rgb(0,0,0);
 
   padding: 20px;
   padding-top: 30px;
   padding-left: 40px;
+}
+
+::backdrop {
+  opacity: 0.5;
 }
 
 
@@ -383,10 +364,10 @@ a, button, input, select {
 #editor {
   resize: none;
   position: absolute;
-  top: 95px;
+  top: 90px;
   left: 20px;
   width: 750px;
-  height: 850px;
+  height: 860px;
   direction: ltr;
   color: #ccc;
   background:#0a0a0a;
@@ -424,5 +405,38 @@ a, button, input, select {
   right:40px;
   top:15px;
   background-color:#000;
-  font-style: italic;"
+  font-style: italic;
+}
+
+#posts
+{
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+  z-index: 1;
+}
+
+#scenes
+{
+  position: absolute;
+  bottom: -2px;
+  width: 100%;
+  left: 400px;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+  z-index: 1;
 }

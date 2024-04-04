@@ -42,49 +42,53 @@
 
   <form id="form_upload_code" encType="multipart/form-data" style="text-align:left">
     <textarea id="editor">
-    /*
-        #include "colors.inc"
-        #include "glass.inc"
-        #include "golds.inc"
-        #include "metals.inc"
-        #include "stones.inc"
-        #include "woods.inc"
-    */
-    camera {
-      sky <0,0,1>
-      direction <-1,0,0>
-      right <-4/3,0,0>
-      location <30,10,1.5>
-      look_at <0,0,1>
-      angle 10
-    }
+  camera {
+    sky <0,0,1>
+    direction <-1,0,0>
+    right <-4/3,0,0>
+    location <30,10,1.5>
+    look_at <0,0,1>
+    angle 10
+  }
 
-    global_settings { ambient_light color rgb< 0.7, 0.7, 0.7> }
+  global_settings { ambient_light color rgb< 0.7, 0.7, 0.7> }
 
-    light_source {
-      <4,-20,20>
-      color rgb< 1.0, 1.0, 1.0> * 2
-    }
+  light_source {
+    <4,-20,16>
+    color rgb< 1.0, 1.0, 1.0> * 2
+  }
 
-    light_source {
-      <1,2,2>
-      color rgb< 1.0, 1.0, 1.0> * 2
-      spotlight
-    }
+  light_source {
+    <2, 1.7, 2.1>
+    color rgb< 1.0, 1.0, 1.0> * 2
+    spotlight
+  }
 
-    background { color <0, 0, 0> }
-    plane {
-      <0,0,1>, 0
-      texture { pigment{ color rgb<0.4, 0.4, 0.4> }
-              finish { phong 1 reflection 0.00}
-            }
-    }
+  background { color <0, 0, 0> }
+  plane {
+    <0,0,1>, 0
+    texture { pigment{ color rgb<0.4, 0.4, 0.4> }
+            finish { phong 1 reflection 0.00}
+          }
+  }
 
-    sphere { <0,0,1.5>, 1
-        texture { pigment{ color rgb< 0.5, 0.2, 0.0> }
-                  finish { phong 1 reflection 0.00}
-                }
-    }
+  sphere { <2,0,1.4>, 0.4
+      texture { pigment{ color rgb< 0.5, 0.2, 0.0> * 2}
+                finish { phong 1 reflection 0.00}
+              }
+  }
+
+  sphere { <0.3,1,1.5>, 0.5
+      texture { pigment{ color rgb< 0.5, 0.2, 0.0> * 1.5}
+                finish { phong 1 reflection 0.00}
+              }
+  }
+
+  sphere { <1,0.5,1>, 0.3
+      texture { pigment{ color rgb< 0.5, 0.2, 0.0> * 1.6 }
+                finish { phong 1 reflection 0.00}
+              }
+  }
     </textarea>
     <input type="submit" value="Render [Ctrl-S]" id="upload_code"/> 
   </form>
@@ -237,6 +241,20 @@
       form.style.visibility = 'hidden';
     });
   </script>
+
+  <!-- Menu -->
+  <div id="scenes">
+    <button onclick="loadScene(1)">1</button>
+    <button onclick="loadScene(2)">2</button>
+    <button onclick="loadScene(3)">3</button>
+    <button onclick="loadScene(4)">4</button>
+    <button onclick="loadScene(5)">5</button>
+  </div>
+ <script>
+   function loadScene(scene) {
+     alert('Scene: ' + scene );
+    }
+ </script>
 
   </body>
 </html>
