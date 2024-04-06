@@ -38,7 +38,7 @@
     }
   </script>
 
-  <img id='result' alt="Image" style='visibility: hidden'>
+  <img id='result' alt="Image" style='visibility: hidden; z-index:2;'>
 
   <form id="form_upload_code" encType="multipart/form-data" style="text-align:left">
     <textarea id="editor">
@@ -51,7 +51,7 @@ camera { perspective
          location <8.50, 4.40, -8.50> * 2.0
          right x * image_width / image_height
          look_at <0.00, -0.20, -0.00>
-         right  <-1.33, 0.00, 0.000> rotate<90,0,0>}
+         rotate<90,0,0>}
 
 light_source{<5.0, 5.0, 3.0> rgb <0.80, 0.80, 0.80>}
 #declare vol_interior = interior {
@@ -349,7 +349,7 @@ hollow
       var xhr = new XMLHttpRequest();
       // Check before deploy !
       // xhr.open('POST', 'http://localhost:8083/render/render.php');
-      xhr.open('POST', 'https://povlab.online/render/render.php?alpha=0'); // TODO: alpha=0 for volumes
+      xhr.open('POST', 'https://povlab.online/render/render.php?alpha=1'); // TODO: alpha=0 for volumes
 
       xhr.responseType = 'json';
       xhr.onload = function() {
@@ -383,7 +383,7 @@ hollow
   <!-- Video
   <video id="video" style='transform: translate(-50%, -50%);  position: absolute;  top: 50%; left: 50%; display:none; object-fit: fill;' playsinline></video>
   -->
-  <video id="video" style='height:100vh; width:100%; position:absolute; z-index:0; visibility:hidden' playsinline></video>
+  <video id="video" playsinline></video>
   <input id="video_button" type="image" src="./data/icons/outline_videocam_white_48dp.png" style='z-index:2'/>
   <script>
     vb = document.getElementById("video_button");

@@ -288,29 +288,29 @@ a, button, input, select {
 
 #gallery_button {
   position:absolute;
-  right:15px;
-  top:14px;
+  right:56px;
+  top:16px;
   opacity:0.5
 }
 
 #renderer_button {
   position:absolute;
-  right:13px;
+  right:15px;
   top:11px;
   opacity:0.5
 }
 
 #video_button {
   position:absolute;
-  right:15px;
-  bottom:60px;
+  right:98px;
+  top:10px;
   opacity:0.5
 }
 
 #upload_button {
   position:absolute;
-  right:17px;
-  bottom:10px;
+  right:7px;
+  top:10px;
   opacity:0.5
 }
 
@@ -375,15 +375,25 @@ a, button, input, select {
   z-index: 999;
 }
 
+#video {
+  width:1280px;
+  height:720px;
+  position:absolute;
+  top: 130px;
+  left: 8px;
+  z-index:0;
+  visibility:hidden'
+}
+
 #editor {
   resize: none;
   position: absolute;
-  top: 90px;
+  top: 85px;
 /*
   left: 20px;
 */
-  right: 80px; 
-  width: 750px;
+  right: 10px; 
+  width: 605px;
   height: 860px;
   direction: ltr;
   color: #ccc;
@@ -396,11 +406,8 @@ a, button, input, select {
 #result
 {
   position: absolute;
-  top:  calc(50vh - 330px);
-/*
-  left: calc(50vw - 150px);
-*/
-  left: 40px;
+  top: 130px;
+  left: 8px;
 }
 
 #upload_code
@@ -447,8 +454,8 @@ a, button, input, select {
 #scenes
 {
   position: absolute;
-  bottom: -2px;
-  left: 400px;
+  bottom: 6px;
+  left: 545px;
   padding: 10px;
   box-sizing: border-box;
   text-align: center;
