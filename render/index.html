@@ -346,11 +346,6 @@ hollow
       const blob = new Blob([editor.value], { type: "text/plain" });
       formData.append("scene", blob, 'scene.pov');
 
-      // Set scene name
-      var scene_name = document.getElementById('scene_name'); 
-      if( scene_name != undefined)
-        scene_name.innerHTML = '[Editor]';
-
       var xhr = new XMLHttpRequest();
       // Check before deploy !
       // xhr.open('POST', 'http://localhost:8083/render/render.php');
@@ -381,7 +376,6 @@ hollow
     document.getElementById("form_upload_code").requestSubmit();
   </script>
 
-  <div id="scene_name" style='z-index:2'>[Editor]</div>
   <!-- Rendering container
   <div id="container" style='height: 100vh; width: 100%; position: absolute; z-index:-1'></div>
   -->

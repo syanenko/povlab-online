@@ -49,6 +49,23 @@
   <!-- Description --> 
   <div id="description"></div>
 
+  <input id="renderer_button" type="image" src="./data/images/tech/icons/terminal_FILL0_wght300_GRAD0_opsz48.png", style='z-index:2'/>
+  <script>
+    gb = document.getElementById("renderer_button");
+    gb.onmouseenter = function () {
+      gb.style.opacity = '1.0';
+    };
+
+    gb.onmouseleave = function () {
+      gb.style.opacity = '0.5';
+    };
+
+    gb.onclick = function () {
+      window.location = "https://povlab.online/render";
+    };
+  </script>
+
+
   <!-- Download -->
   <a id="zip" download >
     <img id="zip_icon" class="nav" src="data/images/tech/icons/outline_file_download_white_36dp.png"

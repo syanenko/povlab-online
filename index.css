@@ -150,7 +150,7 @@ a, button, input, select {
   opacity:0.8;
   position: absolute;
   top: 20px;
-  right: 20px;
+  right: 80px;
   font-size: 130%;
   font-style: italic;
 }
@@ -293,6 +293,13 @@ a, button, input, select {
   opacity:0.5
 }
 
+#renderer_button {
+  position:absolute;
+  right:13px;
+  top:11px;
+  opacity:0.5
+}
+
 #video_button {
   position:absolute;
   right:15px;
@@ -372,7 +379,10 @@ a, button, input, select {
   resize: none;
   position: absolute;
   top: 90px;
+/*
   left: 20px;
+*/
+  right: 80px; 
   width: 750px;
   height: 860px;
   direction: ltr;
@@ -387,7 +397,10 @@ a, button, input, select {
 {
   position: absolute;
   top:  calc(50vh - 330px);
+/*
   left: calc(50vw - 150px);
+*/
+  left: 40px;
 }
 
 #upload_code
@@ -435,7 +448,6 @@ a, button, input, select {
 {
   position: absolute;
   bottom: -2px;
-  width: 100%;
   left: 400px;
   padding: 10px;
   box-sizing: border-box;
