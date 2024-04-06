@@ -279,11 +279,18 @@ a, button, input, select {
 
 #scene_name {
   position: absolute;
-  right: 6px;
+  right: 52px;
   top: 10px;
   color:rgba(255, 255, 255, 0.5);
   margin: 10px;
   font-size: 160%;
+}
+
+#gallery_button {
+  position:absolute;
+  right:15px;
+  top:14px;
+  opacity:0.5
 }
 
 #video_button {

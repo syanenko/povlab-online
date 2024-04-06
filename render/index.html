@@ -401,6 +401,22 @@ hollow
       vb.style.opacity = '0.5';
     };
   </script>
+ 
+  <input id="gallery_button" type="image" src="./data/icons/grid_view_FILL0_wght500_GRAD0_opsz48.png", style='z-index:2'/>
+  <script>
+    gb = document.getElementById("gallery_button");
+    gb.onmouseenter = function () {
+      gb.style.opacity = '1.0';
+    };
+
+    gb.onmouseleave = function () {
+      gb.style.opacity = '0.5';
+    };
+
+    gb.onclick = function () {
+      window.location = "https://povlab.online";
+    };
+  </script>
 
   <input id="upload_button" type="image" src="./data/icons/outline_file_upload_white_48dp.png", style='z-index:2'/>
   <script>
@@ -414,7 +430,7 @@ hollow
     };
     
     ub.onclick = function() {
-        document.getElementById("form_upload_code").requestSubmit();
+        document.getElementById("form_upload_code").requestSubmit();  
     }
   </script>
 
