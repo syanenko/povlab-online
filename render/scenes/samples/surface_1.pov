@@ -3,6 +3,7 @@
 // Created by: yesbird65@gmail.com
 // Date: 07.04.24
 // Inspired by: https://povlab.online/isotutorial
+
 // #version 3.8;
 #include "functions.inc"
 #include "scenes/samples/common/colormaps.inc"
@@ -18,9 +19,8 @@ camera
     //parallaxe atan2 (13*clock,300)
 
     location <5,5,5> * 1.5 // Zoom factor: more - faster
-    look_at   <0,0.3,0>
+    look_at   <0,0,0>
     angle 55
-
     right x * image_width / image_height
   }
 
@@ -48,7 +48,7 @@ light_source {<0, 0,  10>, rgb <1,1,1> * luminosity shadowless}
 // #declare cm = make_colormap (hot,              0.8, 0);
 // #declare cm = make_colormap (smooth_cool_warm, 0.8, 0);
 // #declare cm = make_colormap (hsv,              0.8, 0);
-#declare cm = make_colormap (parula,           0.6, 0);
+#declare cm = make_colormap (parula,           0.1, 0);
 // #declare cm = make_colormap (jet,              0.8, 0);
 // #declare cm = make_colormap (turbo,            0.8, 0);
 // #declare cm = make_colormap (plasma,           0.8, 0);
@@ -65,12 +65,13 @@ isosurface {
    accuracy 0.0001
    max_gradient 1.6
    open
-   contained_by {box {-4.4, +4.4}}
+   contained_by {box {-4.6, +4.6}}
 
    // Appliy colormap here
    pigment { gradient -y
             color_map  { cm }
             scale 7 
-            translate -2.5}
-  scale 0.5
+            translate -2.4}
+
+   scale 0.78 rotate<0,0,0> translate <0,0,0>
 }

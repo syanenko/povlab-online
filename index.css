@@ -24,7 +24,6 @@ a:hover {
 }
 
 button {
-	width: 35px;
 	height: 35px;
         font-size: 15px;
 	background-color: #333;
@@ -373,13 +372,10 @@ a, button, input, select {
   visibility:hidden'
 }
 
-#editor {
+#code {
   resize: none;
   position: absolute;
   top: 85px;
-/*
-  left: 20px;
-*/
   right: 10px; 
   width: 605px;
   height: 860px;
@@ -390,6 +386,7 @@ a, button, input, select {
   font-size: 16px;
   z-index:2
 }
+
 
 #result
 {

@@ -1,5 +1,4 @@
 #version 3.8;
-
 global_settings { assumed_gamma 1 }
 
 camera { perspective

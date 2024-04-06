@@ -1,3 +1,6 @@
+#version 3.8;
+global_settings { assumed_gamma 1 }
+
   camera {
     right x * image_width / image_height
     sky <0,0,1>

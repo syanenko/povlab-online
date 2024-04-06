@@ -3,27 +3,28 @@
 // Created by: yesbird65@gmail.com
 // Date: 07.04.24
 // Inspired by: https://povlab.online/isotutorial
-#version 3.8;
+
+// #version 3.8;
 #include "functions.inc"
 #include "scenes/samples/common/colormaps.inc"
 
 // Camera
 camera
   {
-    orthographic
-    //perspective // Try it
+    //orthographic
+    perspective // Try it
 
     //stereo // Try it too
     //distance (clock <0 ? -0:0 )
     //parallaxe atan2 (13*clock,300)
 
-    location <5,5,5>  * 2.0  // Zoom factor: more - faster
-    look_at   <0,-1.5,0>
+    location <5,5,5>  * 1.2  // Zoom factor: more - faster
+    look_at   <0,-0.3,0>
     angle 55
+    right x * image_width / image_height
   }
 
-// By desire
-// background { color <0, 0, 0> }
+// background { color <0, 0, 0> } // By desire
 
 // Lights: tune them
 #declare luminosity = 1.7;
@@ -71,4 +72,5 @@ isosurface {
              scale 5.8
              translate 2.8}
 
-  scale 2 }
+   scale 1 rotate<0,0,0> translate <0,0,0>
+}
