@@ -288,7 +288,7 @@ a, button, input, select {
 
 #gallery_button {
   position:absolute;
-  right:56px;
+  right:110px;
   top:16px;
   opacity:0.5
 }
@@ -302,7 +302,7 @@ a, button, input, select {
 
 #video_button {
   position:absolute;
-  right:98px;
+  right:56px;
   top:10px;
   opacity:0.5
 }

@@ -41,7 +41,6 @@ global_settings {
       sky <0,0,1>
       right x * image_width / image_height
       direction <-1,0,0>
-      right <-4/3,0,0>
       location <30,10,1.5>
       look_at <0,0,1.5>
       angle 15
