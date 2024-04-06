@@ -21,6 +21,7 @@
   }
 
   background { color <0, 0, 0> }
+
   plane {
     <0,0,1>, 0
     texture { pigment{ color rgb<0.4, 0.4, 0.4> }
