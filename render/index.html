@@ -334,7 +334,6 @@ hollow
      scale <4.00, 4.00, 2.00>}
     
     </textarea>
-    <input type="submit" value="Render [Ctrl-S]" id="upload_code"/> 
   </form>
 
   <script>
@@ -413,79 +412,13 @@ hollow
     ub.onmouseleave = function () {
       ub.style.opacity = '0.5';
     };
-
-    ub.onclick = function() { let form = document.getElementById("form_upload");
-                              form.style.visibility == "visible" ? form.style.visibility = 'hidden': form.style.visibility = "visible"; }
-  </script>
-  <!-- Import Three
-  <script type="importmap">
-    {
-      "imports": {
-        "three": "./three/three.module.js",
-        "three/addons/": "./three/jsm/"
-      }
+    
+    ub.onclick = function() {
+        document.getElementById("form_upload_code").requestSubmit();
     }
   </script>
-  -->
+
   <script type="module" src="index.js"></script>
-  
-  <!-- Upload scene -->
-  <div>
-    <form id="form_upload" encType="multipart/form-data" style="text-align:left">
-        <h3>Upload scene</h3>
-      Geometry&nbsp;<input type="file" name="scene" accept=".pov"/><br/>
-      <input type="submit"  value="Upload" style="margin-left:80px"/>&nbsp;&nbsp;&nbsp;&nbsp;
-      <input type="button"  value="Cancel" onclick="parentElement.style.visibility = 'hidden'"/>
-    </form>
-  </div>
-
-  <script>
-    var form = document.getElementById('form_upload');
-
-    // Add a submit event listener to the form
-    form.addEventListener('submit', function(e) {
-      // Prevent the default form submission behavior
-      e.preventDefault();
-
-      // Create a new FormData object
-      var formData = new FormData();
-
-      // Get the selected file
-      var scene = form.querySelector('[name="scene"]').files[0];
-
-      // Add the file to the FormData object
-      formData.append('scene', scene);
-
-      // Display model name
-      var scene_name = document.getElementById('scene_name'); 
-      scene_name.innerHTML ='[' + scene.name + ']';
-  
-      // Create an XMLHttpRequest object
-      var xhr = new XMLHttpRequest();
-
-      // Check before deploy !
-      // xhr.open('POST', 'http://localhost:8083/render/render.php');
-      xhr.open('POST', 'https://povlab.online/render/render.php');
-
-      // Set the request as asynchronous
-      xhr.responseType = 'json';
-
-      // Set the request onload event listener
-      xhr.onload = function() {
-        if (xhr.status === 200) {
-          console.log(xhr.response);           
-          document.getElementById("result").src = "https://povlab.online/render/" + xhr.response;
-        } else {
-          // There was an error uploading the image
-          console.error(xhr.response);
-        }
-      }
-      // Send the request
-      xhr.send(formData);
-      form.reset();
-      form.style.visibility = 'hidden';
-    });
-  </script>
 
   <!-- Menu -->
   <div id="scenes">
