@@ -426,8 +426,9 @@ a, button, input, select {
 #posts
 {
   position: absolute;
-  bottom: 0px;
-  width: 100%;
+  top: 100px;
+  width: 100px;
+  right: -10px;
   padding: 10px;
   box-sizing: border-box;
   text-align: center;
