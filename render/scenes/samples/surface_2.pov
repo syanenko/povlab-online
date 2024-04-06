@@ -1,27 +1,29 @@
 // Surface 2
-// Inspired by: https://povlab.online/isotutorial/
-// Estimated rendering time with default params: 5 seconds
-//
+// Estimated rendering time with default params: 4 seconds
+// Created by: yesbird65@gmail.com
+// Date: 07.04.24
+// Inspired by: https://povlab.online/isotutorial
+#version 3.8;
 #include "functions.inc"
 #include "scenes/samples/common/colormaps.inc"
 
 // Camera
 camera
   {
-    //perspective
-
-    // Try it
     orthographic
-  
-    // Try it too
-    //stereo
+    //perspective // Try it
+
+    //stereo // Try it too
     //distance (clock <0 ? -0:0 )
     //parallaxe atan2 (13*clock,300)
 
-    location <5,5,5> * 1.5 // Zoom factor: more - faster
+    location <5,5,5> * 2.0 // Zoom factor: more - faster
     look_at   <0,0.3,0>
     angle 55
   }
+
+// By desire
+// background { color <0, 0, 0> }
 
 // Lights: tune them
 #declare luminosity = 1.7;
@@ -63,7 +65,7 @@ isosurface {
    open
    contained_by {box {-2, +2}}
 
-   // Appliying colormap is here
+   // Appliy colormap here
    pigment { gradient -y
              color_map  { cm }
              scale 4
