@@ -29,14 +29,14 @@ camera
 
 // Lights: tune them
 #declare luminosity = 1.7;
-light_source {<0,  10, 0>, rgb <1,1,1> * luminosity shadowless}
+//light_source {<0,  10, 0>, rgb <1,1,1> * luminosity shadowless}
 //light_source {<0, -10, 0>, rgb <1,1,1> * luminosity shadowless}
 
 light_source {< 10, 0, 0>, rgb <1,1,1> * luminosity shadowless}
 //light_source {<-10, 0, 0>, rgb <1,1,1> * luminosity shadowless}
 
 light_source {<0, 0,  10>, rgb <1,1,1> * luminosity shadowless}
-//light_source {<0, 0, -10>, rgb <1,1,1> * luminosity shadowless}
+// light_source {<0, 0, -10>, rgb <1,1,1> * luminosity shadowless}
 
 // Colormap: select it
 // #declare cm = make_colormap (viridis,          0.4, 0);
@@ -48,7 +48,7 @@ light_source {<0, 0,  10>, rgb <1,1,1> * luminosity shadowless}
 // #declare cm = make_colormap (hot,              0.8, 0);
 // #declare cm = make_colormap (smooth_cool_warm, 0.8, 0);
 // #declare cm = make_colormap (hsv,              0.8, 0);
-#declare cm = make_colormap (parula,           0.5, 0);
+#declare cm = make_colormap (parula,           0.6, 0);
 // #declare cm = make_colormap (jet,              0.8, 0);
 // #declare cm = make_colormap (turbo,            0.8, 0);
 // #declare cm = make_colormap (plasma,           0.8, 0);
