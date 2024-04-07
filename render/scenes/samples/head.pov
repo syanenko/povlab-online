@@ -288,4 +288,6 @@ box {<0, 0, 0>, <1, 1, 1>
 pigment { rgbf 1 }
 interior { vol_interior }
 hollow
-     scale <4.00, 4.00, 2.00>}
+
+ scale <4.00, 4.00, 2.00> rotate<0,0,0> translate <0,0,0>
+}
