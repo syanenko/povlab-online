@@ -11,7 +11,6 @@
     #include "functions.inc"
 
 // radiosity (global illumination) settings
-/*
 #default{ finish{ ambient 0 diffuse 1 }} 
 
 global_settings {
@@ -38,7 +37,6 @@ global_settings {
     //max_sample 1.0              // maximum brightness of samples
   }
 }
-*/
 
     camera {
       sky <0,0,1>

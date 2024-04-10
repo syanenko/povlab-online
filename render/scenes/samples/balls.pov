@@ -28,24 +28,24 @@
   plane {
     <0,0,1>, 0
     texture { pigment{ color rgb<0.4, 0.4, 0.4> }
-            finish { phong 1 reflection 0.00}
+              finish { phong 1 reflection 0.00}
           }
   }
 
   sphere { <2,0,1.4>, 0.4
-      texture { pigment{ color rgb< 0.5, 0.2, 0.0> * 2}
-                finish { phong 1 reflection 0.00}
+      texture { pigment{ color rgb< 0.0, 0.5, 0.1> * 1.2}
+                finish { phong 0.5 reflection 0.0}
               }
   }
 
   sphere { <0.3,1,1.5>, 0.5
       texture { pigment{ color rgb< 0.5, 0.2, 0.0> * 1.5}
-                finish { phong 1 reflection 0.00}
+                finish { phong 0.7 reflection 0.0}
               }
   }
 
-  sphere { <1,0.5,1>, 0.3
-      texture { pigment{ color rgb< 0.5, 0.2, 0.0> * 1.6 }
-                finish { phong 1 reflection 0.00}
+  sphere { <1,0.52,0.95>, 0.3
+      texture { pigment{ color rgb< 0.7, 0.2, 0.2> * 1.3 }
+                finish { phong 0.4 reflection 0.0}
               }
   }

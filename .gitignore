@@ -1,5 +1,5 @@
 **/node_modules
 *.bat
 __**
-render/scenes/*
+# render/scenes/*
 render/uploads/*

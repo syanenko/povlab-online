@@ -1,3 +1,6 @@
+//
+// Volume rendering example
+//
 #version 3.8;
 global_settings { assumed_gamma 1 }
 
@@ -284,10 +287,10 @@ light_source{<5.0, 5.0, 3.0> rgb <0.80, 0.80, 0.80>}
 
 background { color <0, 0, 0> }
 
-box {<0, 0, 0>, <1, 1, 1>
-pigment { rgbf 1 }
-interior { vol_interior }
-hollow
+box { <0, 0, 0>, <1, 1, 1>
+  pigment { rgbf 1 }
+  interior { vol_interior }
+  hollow
 
- scale <4.00, 4.00, 2.00> rotate<0,0,0> translate <0,0,0>
+  scale <4.00, 4.00, 2.00> rotate<0,0,0> translate <0,0,0>
 }
