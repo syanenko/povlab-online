@@ -28,6 +28,7 @@ background { color <0, 0, 0> } // By desire
 
 // Lights: tune them
 #declare luminosity = 1.2;
+
 light_source {<0,  10, 0>, rgb <1,1,1> * luminosity}
 //light_source {<0, -10, 0>, rgb <1,1,1> * luminosity shadowless}
 

@@ -28,6 +28,7 @@ camera
 
 // Lights: tune them
 #declare luminosity = 1.7;
+
 light_source {<0,  10, 0>, rgb <1,1,1> * luminosity shadowless}
 //light_source {<0, -10, 0>, rgb <1,1,1> * luminosity shadowless}
 

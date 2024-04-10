@@ -17,8 +17,8 @@ camera
     //distance (clock <0 ? -0:0 )
     //parallaxe atan2 (13*clock,300)
 
-    location <5,5,5>  * 1.2  // Zoom factor: more - faster
-    look_at   <0,-0.3,0>
+    location <5,5,5>  * 1.0  // Zoom factor: more - faster
+    look_at   <0,0.1,0>
     angle 55
     right x * image_width / image_height
   }
@@ -27,6 +27,7 @@ camera
 
 // Lights: tune them
 #declare luminosity = 1.7;
+
 light_source {<0,  10, 0>, rgb <1,1,1> * luminosity shadowless}
 //light_source {<0, -10, 0>, rgb <1,1,1> * luminosity shadowless}
 

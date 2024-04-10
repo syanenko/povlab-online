@@ -6,19 +6,20 @@
 #include "shapes.inc"
 global_settings { assumed_gamma 1 }
 
-camera { perspective         angle 35
+camera { perspective
+         angle 35
          location <28.00, 10.00, -15.00> * 1.4
          right x * image_width / image_height
          look_at <0.00, 3.50, -6.00>
          rotate<90,0,0>
 }
 
-light_source{<10.0, 20.0, 40.0> rgb <0.40, 0.40, 0.40> * 0.7 }
-light_source{<10.0, 14.0,  3.0> rgb <0.20, 0.20, 0.20> * 0.6 }
+light_source{<15.0, 15.0, 40.0> rgb <0.40, 0.40, 0.40> * 0.5 }
+light_source{<10.0, 14.0,  3.0> rgb <0.20, 0.20, 0.20> * 0.7 }
 
 plane {
   <0,0,1>, 0
-  texture { pigment{ color rgb<0.1, 0.1, 0.1> }
+  texture { pigment{ color rgb<0.2, 0.2, 0.2> }
             finish { phong 1 reflection 0.00}
           }
 }
@@ -71,3 +72,4 @@ difference {
              texture { tex_green }
              rotate <90.00, 90.00, 90.00> translate <0.00, 2.00, 4.50>}
 scale <1.10, 1.10, 1.10> translate <0.00, 1.80, 0.00>}
+
