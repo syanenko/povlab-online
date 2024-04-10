@@ -55,7 +55,7 @@ light_source {<0, 0,  10>, rgb <1,1,1> * luminosity shadowless}
 // #declare cm = make_colormap (inferno,          0.8, 0);
 
 // Surface: play with params
-#declare f = function { f_sphere(x,y,z,0.8) - pow(f_noise3d(x,y,z), 1.2) }
+#declare f = function { f_sphere(x,y,z,1.2) - pow(f_noise3d(x,y,z), 1.1) }
 isosurface {
   function { f(x,y - (y/4),z) }
 

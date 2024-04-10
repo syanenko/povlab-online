@@ -41,7 +41,7 @@ light_source {<0, 0,  10>, rgb <1,1,1> * luminosity shadowless}
 // #declare cm = make_colormap (spring,           0.6, 0);
 // #declare cm = make_colormap (summer,           0.8, 0);
 // #declare cm = make_colormap (autumn,           0.8, 0);
-#declare cm = make_colormap (winter,           0.5, 0);
+// #declare cm = make_colormap (winter,           0.5, 0);
 // #declare cm = make_colormap (cool,             0.5, 0);
 // #declare cm = make_colormap (hot,              0.8, 0);
 // #declare cm = make_colormap (smooth_cool_warm, 0.8, 0);
@@ -49,27 +49,28 @@ light_source {<0, 0,  10>, rgb <1,1,1> * luminosity shadowless}
 // #declare cm = make_colormap (parula,           0.8, 0);
 // #declare cm = make_colormap (jet,              0.8, 0);
 // #declare cm = make_colormap (turbo,            0.8, 0);
-// #declare cm = make_colormap (plasma,           0.8, 0);
+#declare cm = make_colormap (plasma,           0.6, 0);
 // #declare cm = make_colormap (ext_kindlmann,    0.8, 0);
 // #declare cm = make_colormap (kindlmann,        0.8, 0);
 // #declare cm = make_colormap (inferno,          0.8, 0);
 
 // Surface: play with params
-#declare f = function { f_sphere(x,y,z,0.2) - (cos(x) - cos(y) + sin(z)) }
 isosurface {
-  function { f(x,y - (y/4),z) }
 
-   threshold 0
-   accuracy 0.001
-   max_gradient 1.6
-   open
-   contained_by {box {-2.8, +2.8}}
+  function{
+   f_sphere(x, y, z, 1.8) - (-f_snoise3d(x*1.5, y*1, z*1)*2.25) 
 
-   // Appliy colormap: play with params
-   pigment { gradient -y
-             color_map  { cm }
-             scale 5.8
-             translate 2.8}
+  }
+  contained_by { sphere {<0,0,0>, -3.3 } }
+  accuracy 0.003
+  max_gradient 5
 
-   scale 1 rotate<0,0,0> translate <0,0,0>
+  texture{ 
+    pigment { gradient -y
+              color_map {cm}
+              translate y * 1.5
+              scale 5.8 }} 
+
+  scale 0.7
+  translate <-0.3, 0.1, 0>
 }
