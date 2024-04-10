@@ -1,18 +1,19 @@
+//
 // Surface 3
 // Estimated rendering time with default params: 4 seconds
 // Created by: yesbird65@gmail.com
-// Date: 07.04.24
 // Inspired by: https://povlab.online/isotutorial
-
-// #version 3.8;
+// Estimated rendering time with default params: 4 seconds
+//#version 3.8;
 #include "functions.inc"
 #include "scenes/samples/common/colormaps.inc"
+//global_settings { assumed_gamma 1 }
 
 // Camera
 camera
   {
-    //orthographic
-    perspective // Try it
+    perspective
+    // orthographic // Try it
 
     //stereo // Try it too
     //distance (clock <0 ? -0:0 )
