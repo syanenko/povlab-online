@@ -68,9 +68,9 @@ isosurface {
 
    // Appliy colormap here
    pigment { gradient -y
-            color_map  { cm }
-            scale 7 
-            translate -2.4}
+             color_map  { cm }
+             scale 7 
+             translate -2.4}
 
    scale 0.78 rotate<0,0,0> translate <0,0,0>
 }
