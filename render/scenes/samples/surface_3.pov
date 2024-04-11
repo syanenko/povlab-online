@@ -3,7 +3,6 @@
 // Estimated rendering time with default params: 4 seconds
 // Created by: yesbird65@gmail.com
 // Inspired by: https://povlab.online/isotutorial
-// Estimated rendering time with default params: 4 seconds
 //#version 3.8;
 #include "functions.inc"
 #include "scenes/samples/common/colormaps.inc"

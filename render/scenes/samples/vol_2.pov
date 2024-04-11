@@ -34,7 +34,7 @@ light_source {
 
 #declare theinterior = interior {
   media {
-    intervals 10
+    intervals 8
     ratio 0.5
     samples 2,2
     method 2
