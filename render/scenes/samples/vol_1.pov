@@ -24,7 +24,7 @@ light_source{<5.0, 5.0, 3.0> rgb <0.80, 0.80, 0.80>}
         confidence 0.999
         variance 0.001
             density {
-                density_file df3 "data/volume/test_vol.df3"
+                density_file df3 "data/volume/head.df3"
                 interpolate 1
                 color_map {
                     [0.0000 rgb <0.00,0.00,0.52>]

@@ -58,7 +58,7 @@ isosurface {
                 [1.00 rgb <1,0,0>]
               }
 
-              translate z * 0.12
+              translate z * 0.09
               scale 1.8 }} 
 
   rotate<0,0,0>

@@ -1,5 +1,5 @@
 //
-// Surface 7
+// Isosurface: Shell_1
 // Created by: yesbird65@gmail.com
 // Inspired by: https://povlab.online/isotutorial
 #version 3.8;
@@ -10,15 +10,15 @@
 // Camera
 camera
   {
-    //orthographic
-    perspective // Try it
+    perspective
+    //orthographic // Try it
 
     //stereo // Try it too
     //distance (clock <0 ? -0:0 )
     //parallaxe atan2 (13*clock,300)
 
-    location  <0, 6, -20> * 1.2  // Zoom factor: more - faster
-    look_at <-1, -3.7, 0>
+    location  <0, 0, -20> * 1.2
+    look_at <0, -4, 0>
     angle 34
     right x * image_width / image_height
   }
@@ -28,7 +28,7 @@ background { color <0, 0, 0> } // By desire
 // Lights: tune them
 #declare luminosity = 1.2;
 
-light_source {<0,  10, 0>, rgb <1,1,1> * luminosity}
+light_source {<0,  10, 0>, rgb <1,1,1> * luminosity shadowless}
 //light_source {<0, -10, 0>, rgb <1,1,1> * luminosity shadowless}
 
 light_source {< 10, 0, 0>, rgb <1,1,1> * luminosity}
@@ -86,5 +86,5 @@ object{
       reflection 0.1
       }
   no_shadow
-  rotate x*120
+  rotate x*90
 }
