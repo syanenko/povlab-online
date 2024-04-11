@@ -57,7 +57,6 @@ light_source {<0, 0,  10>, rgb <1,1,1> * luminosity}
 // #declare cm = make_colormap (inferno,          0.8, 0);
 
 // Surface: play with params
-
 #declare N=5.6;  // number of turns
 #declare H=3.5;  // height
 #declare P=2;    // power
@@ -76,7 +75,6 @@ object{
        <FromU(0),0>,<2*pi,2*pi>,
        250,50,""
     )
-//    pigment {rgb 0.9}
 
     pigment { gradient -y
               color_map  { cm }

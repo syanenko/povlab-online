@@ -12,12 +12,12 @@
 // Camera
 camera
   {
-    perspective
-    // orthographic // Try it
-
-    //stereo // Try it too
-    //distance (clock <0 ? -0:0 )
-    //parallaxe atan2 (13*clock,300)
+    // perspective  // Try it
+    // orthographic // Try it too
+   
+    stereo
+    distance (clock <0 ? -0:0 )
+    parallaxe atan2 (13*clock,300)
 
     location <5,5,5>  * 1.2  // Zoom factor: more - faster
     look_at   <0,-0.3,0>

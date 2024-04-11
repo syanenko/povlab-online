@@ -14,7 +14,7 @@ camera { perspective
 light_source{<5.0, 5.0, 3.0> rgb <0.80, 0.80, 0.80>}
 #declare vol_interior = interior {
     media {
-        intervals 4
+        intervals 8
         ratio 0.5
         samples  3,3
         method 1
