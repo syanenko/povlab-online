@@ -62,9 +62,9 @@
       formData.append("scene", blob, 'scene.pov');
 
       var xhr = new XMLHttpRequest();
-      // Check before deploy !
-      // xhr.open('POST', 'http://localhost:8083/render.php');
-      xhr.open('POST', 'https://povlab.online/render.php');
+      // Check before publish !
+      xhr.open('POST', 'http://localhost:8083/render.php');
+      // xhr.open('POST', 'https://povlab.online/render.php');
 
       xhr.responseType = 'json';
       xhr.onload = function() {
@@ -166,8 +166,10 @@
  <script>
 
    function loadScene(url) {
-  
-   url = "https://povlab.online/scenes/samples/" + url;
+
+// Check before publish ! 
+//   url = "https://povlab.online/scenes/samples/" + url;
+   url = "http://localhost:8083/scenes/samples/" + url;
 
 const options = {
   headers: {
