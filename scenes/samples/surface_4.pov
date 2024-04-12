@@ -45,9 +45,9 @@ light_source {<0, 0,  10>, rgb <1,1,1> * luminosity shadowless}
 // #declare cm = make_colormap (hot,              0.8, 0);
 // #declare cm = make_colormap (smooth_cool_warm, 0.8, 0);
 // #declare cm = make_colormap (hsv,              0.8, 0);
-#declare cm = make_colormap (parula,           0.6, 0);
+// #declare cm = make_colormap (parula,           0.6, 0);
 // #declare cm = make_colormap (jet,              0.8, 0);
-// #declare cm = make_colormap (turbo,            0.8, 0);
+#declare cm = make_colormap (turbo,            0.8, 0);
 // #declare cm = make_colormap (plasma,           0.8, 0);
 // #declare cm = make_colormap (ext_kindlmann,    0.8, 0);
 // #declare cm = make_colormap (kindlmann,        0.8, 0);
@@ -74,10 +74,10 @@ isosurface {
   texture{ 
     pigment { gradient -y
               color_map {cm}
-              translate y * 1.5
-              scale 2.7 }} 
+              translate y * .3
+              scale 5 }} 
   
-  rotate<35,35,35>
+  rotate<25,25,25>
   scale 2
   translate< 0,0,0>
 }
