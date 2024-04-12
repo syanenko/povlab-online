@@ -2,26 +2,31 @@
 <html lang="en">
   <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-90TCG4QQ5H"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4BTQWYDYSB"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-90TCG4QQ5H');
+
+      gtag('config', 'G-4BTQWYDYSB');
     </script>
 
     <title>POV-Lab</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-
-<!-- Caching -->  
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="expires" content="timestamp">
-
     <link type="text/css" rel="stylesheet" href="/index.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
   </head>
 
   <body>
+  <!-- Code mirror --> 
+  <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"></script>
+  <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/perl/perl.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css"></link>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/abbott.min.css"></link>
 
   <!-- Header --> 
   <div id='header'></div>
@@ -40,18 +45,75 @@
     }
   </script>
 
-  <!-- Name --> 
-  <div id="name"></div>
+  <img id='result' alt="Image" width="1280" height="720" style='visibility: hidden; z-index:2;'>
 
-  <!-- Image -->
-  <div id="image_place"><img id='image'></img></div>
+  <form id="form_upload_code" encType="multipart/form-data" style="text-align:left">
+    <textarea id="code" name="code" wrap="off"></textarea>
+  </form>
 
-  <!-- Description --> 
-  <div id="description"></div>
-
-  <input id="renderer_button" type="image" src="./data/images/tech/icons/terminal_FILL0_wght300_GRAD0_opsz48.png", style='z-index:2'/>
   <script>
-    gb = document.getElementById("renderer_button");
+    var form = document.getElementById('form_upload_code');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      var formData = new FormData();
+      const code = document.getElementById("code")
+      const blob = new Blob([code.value], { type: "text/plain" });
+      formData.append("scene", blob, 'scene.pov');
+
+      var xhr = new XMLHttpRequest();
+      // Check before deploy !
+      // xhr.open('POST', 'http://localhost:8083/render.php');
+      xhr.open('POST', 'https://povlab.online/render.php');
+
+      xhr.responseType = 'json';
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          let result = document.getElementById("result");
+          result.src = "https://povlab.online/" + xhr.response;
+          console.log(xhr.response);
+          result.style.visibility = 'visible';
+        } else {
+          console.error(xhr.response);
+        }
+      }
+      xhr.send(formData);
+    });
+
+    // Send by 'Ctrl-S'
+    document.addEventListener("keydown", function keydown (event) {
+        if (navigator.platform === "MacIntel" ? event.metaKey : event.ctrlKey && event.key === "s") {
+            event.preventDefault()
+            document.getElementById("form_upload_code").requestSubmit();
+        }
+    })
+
+    document.getElementById("form_upload_code").requestSubmit();
+  </script>
+
+  <!-- Rendering container
+  <div id="container" style='height: 100vh; width: 100%; position: absolute; z-index:-1'></div>
+  -->
+
+  <!-- Video
+  <video id="video" style='transform: translate(-50%, -50%);  position: absolute;  top: 50%; left: 50%; display:none; object-fit: fill;' playsinline></video>
+  -->
+  <video id="video" playsinline></video>
+  <input id="video_button" type="image" src="./data/icons/outline_videocam_white_48dp.png" style='z-index:2'/>
+  <script>
+    vb = document.getElementById("video_button");
+    vb.onmouseenter = function () {
+      vb.style.opacity = '1.0';
+    };
+
+    vb.onmouseleave = function () {
+      vb.style.opacity = '0.5';
+    };
+  </script>
+ 
+  <input id="gallery_button" type="image" src="./data/icons/grid_view_FILL0_wght500_GRAD0_opsz48.png", style='z-index:2'/>
+  <script>
+    gb = document.getElementById("gallery_button");
     gb.onmouseenter = function () {
       gb.style.opacity = '1.0';
     };
@@ -61,161 +123,70 @@
     };
 
     gb.onclick = function () {
-      window.location = "https://povlab.online/render";
+      window.location = "https://xr.povlab.online";
     };
   </script>
 
-
-  <!-- Download -->
-  <a id="zip" download >
-    <img id="zip_icon" class="nav" src="data/images/tech/icons/outline_file_download_white_36dp.png"
-                       onmouseenter="style.opacity = '1.0'"
-                       onmouseleave="style.opacity = '0.6'"
-                       alt="Download"/>
-  </a>
-
-  <!-- VRButton -->
-  <div id='vr_button'></div>
-
-  <!-- <<  -->
-  <img id='prev' class="nav" style="left: 50px" src="data/images/tech/icons/outline_arrow_circle_left_white_36dp.png" alt="Prev"
-                                                onclick="post > 1 ? showPost(--post): ()=>{}"
-                                                onmouseenter="style.opacity = '1.0'" 
-                                                onmouseleave="style.opacity = '0.5'"/>
-  <!-- >> -->
-  <img id='next' class="nav" style="right: 50px" src="data/images/tech/icons/outline_arrow_circle_right_white_36dp.png" alt="Next"
-                                                 onclick="post < max_post ? showPost(++post): ()=>{}"
-                                                 onmouseenter="style.opacity = '1.0'" 
-                                                 onmouseleave="style.opacity = '0.6'"/>
-  <script type="module" src="./vrview.js"></script>
-
-  <!-- Selector -->
+  <input id="upload_button" type="image" src="./data/icons/outline_file_upload_white_48dp.png", style='z-index:2'/>
   <script>
-    const max_post = 5;
-    var post = 0;
-    const Projection = { FLAT:  0,
-                          VR180: 1,
-                          VR360: 2 };
-    var proj = Projection.FLAT;
-    var images_dir = 'data/images/';
+    ub = document.getElementById("upload_button");
+    ub.onmouseenter = function () {
+      ub.style.opacity = '1.0';
+    };
 
-    let img  = document.getElementById("image");
-    let name = document.getElementById("name");
-    let desc = document.getElementById("description");
-    let zip  = document.getElementById("zip");
-    zip.style.visibility = "hidden";
-    let vr_button  = document.getElementById("vr_button");
-    vr_button.style.visibility = "hidden";
-   
-    let prev = document.getElementById("prev");
-    let next = document.getElementById("next");
-    prev.style.visibility = "hidden";
-    next.style.visibility = "hidden";
-    var images = [];
-
-    // Show post
-    function showPost(p){
-      post = p;
-      switch(p) {
-        case 1:
-          name.innerHTML = 'Surface 1';
-          desc.innerHTML = '(1) z = sin (sqrt (x^2 + y^2)) / (sqrt (x^2 + y^2))';
-          zip.href       = 'data/scenes/scene_1.zip';
-          zip.style.visibility  = "visible";
-          vr_button.style.visibility = "visible";
-          //prev.style.visibility = "visible";
-          //next.style.visibility = "visible";
-          img.setAttribute("src", "data/images/posts/surface_1.png")
-
-          images[0] = "posts/surface_1_cam_0.png";
-          images[1] = "posts/surface_1_cam_1.png";
-          images[2] = "posts/surface_1_cam_2.png";
-          break;
-
-        case 2:
-          name.innerHTML = 'Surface 2';
-          desc.innerHTML = '(2) z = sin (sqrt (x^2 + y^2)) / (sqrt (x^2 + y^2))';
-          zip.href       = 'data/scenes/scene_2.zip';
-          zip.style.visibility = "visible";
-          vr_button.style.visibility = "visible";
-          //prev.style.visibility = "visible";
-          //next.style.visibility = "visible";
-          img.setAttribute("src", "data/images/posts/surface_2.png")
-
-          images[0] = "posts/surface_2_cam_0.png";
-          images[1] = "posts/surface_2_cam_1.png";
-          images[2] = "posts/surface_2_cam_2.png";
-          break;
-
-        case 3:
-          name.innerHTML = 'Surface 3';
-          desc.innerHTML = '(3) z = sin (sqrt (x^2 + y^2)) / (sqrt (x^2 + y^2))';
-          zip.href       = 'data/scenes/scene_3.zip';
-          zip.style.visibility = "visible";
-          vr_button.style.visibility = "visible";
-          //prev.style.visibility = "visible";
-          //next.style.visibility = "visible";
-          img.setAttribute("src", "data/images/posts/surface_3.png")
-
-          images[0] = "posts/surface_3_cam_0.png";
-          images[1] = "posts/surface_3_cam_1.png";
-          images[2] = "posts/surface_3_cam_2.png";
-          break;
-
-        case 4:
-          name.innerHTML = 'Surface 4';
-          desc.innerHTML = '(4) z = sin (sqrt (x^2 + y^2)) / (sqrt (x^2 + y^2))';
-          zip.href       = 'data/scenes/scene_4.zip';
-          zip.style.visibility = "visible";
-          vr_button.style.visibility = "visible";
-          //prev.style.visibility = "visible";
-          //next.style.visibility = "visible";
-          img.setAttribute("src", "data/images/posts/surface_4.png")
-
-          images[0] = "posts/surface_4_cam_0.png";
-          images[1] = "posts/surface_4_cam_1.png";
-          images[2] = "posts/surface_4_cam_2.png";
-          break;
-
-        case 5:
-          name.innerHTML = 'Surface 5';
-          desc.innerHTML = '(5) z = sin (sqrt (x^2 + y^2)) / (sqrt (x^2 + y^2))';
-          zip.href       = 'data/scenes/scene_5.zip';
-          zip.style.visibility = "visible";
-          vr_button.style.visibility = "visible";
-          //prev.style.visibility = "visible";
-          //next.style.visibility = "visible";
-          img.setAttribute("src", "data/images/posts/surface_5.png")
-
-          images[0] = "posts/surface_5_cam_0.png";
-          images[1] = "posts/surface_5_cam_1.png";
-          images[2] = "posts/surface_5_cam_2.png";
-          break;
-      }
-      
-      if(images.length == 0) {
-        console.log("vrview[31]: No images to view !");
-      } else {
-        window.vrView();
-      }
+    ub.onmouseleave = function () {
+      ub.style.opacity = '0.5';
+    };
+    
+    ub.onclick = function() {
+        document.getElementById("form_upload_code").requestSubmit();
     }
-
-
   </script>
 
-  <script>
-    // Initial view
-    setTimeout(()=>showPost(1), 500);
-  </script>
+  <script type="module" src="index.js"></script>
 
   <!-- Menu -->
-  <div id="posts">
-    <button onclick="showPost(1)">1</button><br>
-    <button onclick="showPost(2)">2</button><br>
-    <button onclick="showPost(3)">3</button><br>
-    <button onclick="showPost(4)">4</button><br>
-    <button onclick="showPost(5)">5</button>
+  <div id="scenes">
+    <button onclick="loadScene('balls.pov')"                data-title="Simple scene (1.2 sec)">BALL</button>
+    <button onclick="loadScene('surface_1.pov')",           data-title="Isosurface (4 sec)">ISO 1</button>
+    <button onclick="loadScene('surface_2.pov')",           data-title="Isosurface (6 sec)">ISO 2</button>
+    <button onclick="loadScene('surface_3.pov')",           data-title="Isosurface stereo (2.7 sec)">ISO 3</button>
+    <button onclick="loadScene('surface_4.pov')",           data-title="Isosurface (3 sec)">ISO 4</button>
+    <button onclick="loadScene('surface_5.pov')",           data-title="Isosurface (5.4 sec)">ISO 5</button>
+    <button onclick="loadScene('surface_6.pov')",           data-title="Isosurface (10 sec)">ISO 6</button>
+    <button onclick="loadScene('shell_1.pov')",             data-title="Isosurface (3.7 sec)">SHELL 1</button>
+    <button onclick="loadScene('csg.pov')",                 data-title="CSG (2 sec)">CSG 1</button>
+    <button onclick="loadScene('1TQN/1TQN_POV_scene.pov')", data-title="Molecular structure (6 sec)">MOL 1</button>
+    <button onclick="loadScene('vol_1.pov')",               data-title="Volume (1.6 sec)">VOL 1</button>
+    <button onclick="loadScene('vol_2.pov')",               data-title="Volume (2.3 sec)">VOL 2</button>
+    <button onclick="loadScene('diso_1.pov')",              data-title="Density as isosurface (2 sec)">DISO 1</button>
+    <button onclick="loadScene('radiosity_1.pov')",         data-title="Radiosity (20 sec)">RAD 1</button>
   </div>
 
-	</body>
+ <script>
+
+   function loadScene(url) {
+  
+   url = "https://povlab.online/scenes/samples/" + url;
+
+const options = {
+  headers: {
+  }
+};
+
+fetch(url, options)
+  .then(function(response) {
+    response.text().then(function(text) {
+      const code  = document.getElementById("code");
+      code.value = text;
+      code.scrollTo(0, 0);
+      document.getElementById("form_upload_code").requestSubmit();
+    });
+  });
+    }
+
+  loadScene('balls.pov')
+ </script>
+
+  </body>
 </html>
