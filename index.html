@@ -18,15 +18,15 @@
     <meta http-equiv="expires" content="timestamp">
     <link type="text/css" rel="stylesheet" href="/index.css">
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <!-- Code mirror --> 
+    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"></script>
+    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/clike/clike.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css"></link>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/abcdef.min.css"></link>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/blackboard.min.css"></link>
   </head>
-
   <body>
-  <!-- Code mirror --> 
-  <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"></script>
-  <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/perl/perl.min.js"></script>
-
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css"></link>
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/abbott.min.css"></link>
 
   <!-- Header --> 
   <div id='header'></div>
@@ -51,6 +51,16 @@
     <textarea id="code" name="code" wrap="off"></textarea>
   </form>
 
+  <!-- CodeMirror instance -->
+  <script>
+    var editor = CodeMirror.fromTextArea(code, {
+      lineNumbers: true,
+      //theme: 'blackboard'
+      theme: 'abcdef',
+      mode:  "clike"
+    });
+  </script>
+ 
   <script>
     var form = document.getElementById('form_upload_code');
     form.addEventListener('submit', function(e) {

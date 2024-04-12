@@ -364,6 +364,7 @@ a, button, input, select {
   visibility:hidden'
 }
 
+/* TODO: Replace by codemirror */
 #code {
   resize: none;
   position: absolute;
@@ -379,6 +380,24 @@ a, button, input, select {
   z-index:2
 }
 
+.CodeMirror{
+  resize: none;
+  position: absolute;
+  top: 85px;
+  right: 10px; 
+  width: 605px;
+  height: 860px;
+/*
+  direction: ltr;
+
+  color: #ccc;
+  background:#0a0a0a;
+
+  font-family: Monospace;
+  font-size: 16px;
+*/
+  z-index:2
+}
 
 #result
 {
