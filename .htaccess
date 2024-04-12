@@ -18,3 +18,7 @@ php_value log_errors_max_len 0
     Satisfy All
 </Files>
 
+<IfModule mod_headers.c>    
+    Header set Access-Control-Allow-Origin *
+</IfModule>
+
