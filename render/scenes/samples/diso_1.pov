@@ -31,9 +31,9 @@ light_source {
 }
 
 isosurface {
-  function { 0.45 - F(x,y,z) }
+  function { 0.50 - F(x,y,z) } // Play with it
   contained_by {box {<-1,-1,-1> * 1.5, <1,1,1> * 1.5}}
-  threshold 0.07 // Play with it
+  threshold 0.1 // Play with it
   max_gradient 18
   
   texture{ 
