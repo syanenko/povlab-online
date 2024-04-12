@@ -19,9 +19,10 @@
     <link type="text/css" rel="stylesheet" href="/index.css">
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
-    <!-- Code mirror --> 
+    <!-- Code mirror TODO: Replace by local --> 
     <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"></script>
     <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/clike/clike.min.js"></script>
+
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css"></link>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/abcdef.min.css"></link>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/blackboard.min.css"></link>
@@ -55,7 +56,7 @@
   <script>
     var editor = CodeMirror.fromTextArea(code, {
       lineNumbers: true,
-      //theme: 'blackboard'
+      // theme: 'blackboard'
       theme: 'abcdef',
       mode:  "clike"
     });

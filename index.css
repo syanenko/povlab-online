@@ -25,11 +25,12 @@ a:hover {
 
 button {
 	height: 35px;
-        font-size: 15px;
+  font-size: 15px;
 	background-color: #333;
-        color: #ffac13;
+  color: #ffac13;
 	cursor: pointer;
 }
+
 
 a, button, input, select {
 	pointer-events: auto;
@@ -364,7 +365,7 @@ a, button, input, select {
   visibility:hidden'
 }
 
-/* TODO: Replace by codemirror */
+/* TODO: Replace by codemirror
 #code {
   resize: none;
   position: absolute;
@@ -379,6 +380,7 @@ a, button, input, select {
   font-size: 16px;
   z-index:2
 }
+ */
 
 .CodeMirror{
   resize: none;
@@ -387,15 +389,9 @@ a, button, input, select {
   right: 10px; 
   width: 605px;
   height: 860px;
-/*
-  direction: ltr;
-
-  color: #ccc;
-  background:#0a0a0a;
-
   font-family: Monospace;
-  font-size: 16px;
-*/
+	font-size: 16px;
+	line-height: 22px;
   z-index:2
 }
 
