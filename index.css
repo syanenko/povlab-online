@@ -27,7 +27,11 @@ button {
 	height: 35px;
   font-size: 15px;
 	background-color: #333;
+/*
   color: #ffac13;
+  color: #0f0;
+*/
+  color: #abcdef;
 	cursor: pointer;
 }
 
