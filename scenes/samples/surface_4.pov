@@ -1,4 +1,3 @@
-//
 // Surface 4
 // Created by: yesbird65@gmail.com
 // Inspired by: https://povlab.online/isotutorial
@@ -10,15 +9,14 @@ global_settings { assumed_gamma 1 }
 // Camera
 camera
   {
-    //orthographic
-    perspective // Try it
-
+    perspective
+    //orthographic  // Try it
     //stereo // Try it too
     //distance (clock <0 ? -0:0 )
     //parallaxe atan2 (13*clock,300)
 
     location <5,5,5>  * 1.0  // Zoom factor: more - faster
-    look_at   <0,-0.3,0>
+    look_at   <0,0,0>
     angle 55
     right x * image_width / image_height
   }

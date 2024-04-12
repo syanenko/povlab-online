@@ -12,15 +12,13 @@ camera
   {
     perspective
     //orthographic // Try it
-
     /* Try it too
     stereo
     distance (clock <0 ? -0:0 )
     parallaxe atan2 (13*clock,300)
     */
-
-    location  <0, 0, -20> * 1.2
-    look_at <0, -3.7, 0>
+    location  <0, 0, -20> * 1.1
+    look_at <0, -3.5, 0>
     angle 35
     right x * image_width / image_height
   }
