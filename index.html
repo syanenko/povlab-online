@@ -16,16 +16,14 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="expires" content="timestamp">
-    <link type="text/css" rel="stylesheet" href="/index.css">
-    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
-    <!-- Code mirror TODO: Replace by local --> 
-    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"></script>
-    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/clike/clike.min.js"></script>
+    <!-- Codemirror -->
+    <script src="node_modules/codemirror/lib/codemirror.js"></script>
+    <link rel="stylesheet" href="node_modules/codemirror/lib/codemirror.css">
+    <script src="node_modules/codemirror/mode/clike/clike.js"></script>
+    <link rel="stylesheet" href="node_modules/codemirror/theme/abcdef.css">
 
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css"></link>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/abcdef.min.css"></link>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/blackboard.min.css"></link>
+    <link type="text/css" rel="stylesheet" href="/index.css">    
   </head>
   <body>
 
@@ -52,11 +50,10 @@
     <textarea id="code" name="code" wrap="off"></textarea>
   </form>
 
-  <!-- CodeMirror instance -->
+  <!-- CodeMirror editor -->
   <script>
     var editor = CodeMirror.fromTextArea(code, {
       lineNumbers: true,
-      // theme: 'blackboard'
       theme: 'abcdef',
       mode:  "clike"
     });

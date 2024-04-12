@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "codemirror": "^5.65.16"
+  },
+  "devDependencies": {
+    "servez": "^2.1.4"
+  },
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "servez -p 3000"
+  }
+}
