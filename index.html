@@ -62,10 +62,7 @@
       formData.append("scene", blob, 'scene.pov');
 
       var xhr = new XMLHttpRequest();
-      // Check before publish !
-      xhr.open('POST', 'http://localhost:8083/render.php');
-      // xhr.open('POST', 'https://povlab.online/render.php');
-
+      xhr.open('POST', 'https://povlab.online/render.php');
       xhr.responseType = 'json';
       xhr.onload = function() {
         if (xhr.status === 200) {
@@ -163,32 +160,28 @@
     <button onclick="loadScene('radiosity_1.pov')",         data-title="Radiosity (20 sec)">RAD 1</button>
   </div>
 
- <script>
+  <script>
+    function loadScene(url) {
+    url = "https://povlab.online/scenes/samples/" + url;
 
-   function loadScene(url) {
+    const options = {
+      headers: {
+      }
+    };
 
-// Check before publish ! 
-//   url = "https://povlab.online/scenes/samples/" + url;
-   url = "http://localhost:8083/scenes/samples/" + url;
-
-const options = {
-  headers: {
-  }
-};
-
-fetch(url, options)
-  .then(function(response) {
-    response.text().then(function(text) {
-      const code  = document.getElementById("code");
-      code.value = text;
-      code.scrollTo(0, 0);
-      document.getElementById("form_upload_code").requestSubmit();
-    });
-  });
+    fetch(url, options)
+      .then(function(response) {
+        response.text().then(function(text) {
+          const code  = document.getElementById("code");
+          code.value = text;
+          code.scrollTo(0, 0);
+          document.getElementById("form_upload_code").requestSubmit();
+        });
+      });
     }
 
-  loadScene('balls.pov')
- </script>
+    loadScene('balls.pov')
+  </script>
 
   </body>
 </html>
