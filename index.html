@@ -170,7 +170,6 @@
   <script>
     function loadScene(url) {
     url = "https://povlab.online/scenes/samples/" + url;
-
     const options = {
       headers: {
       }
@@ -179,8 +178,7 @@
     fetch(url, options)
       .then(function(response) {
         response.text().then(function(text) {
-          const code  = document.getElementById("code");
-          code.value = text;
+          editor.getDoc().setValue(text);
           code.scrollTo(0, 0);
           document.getElementById("form_upload_code").requestSubmit();
         });
