@@ -268,34 +268,29 @@ a, button, input, select {
 #upload_button {
   position:absolute;
   top:10px;
+/*
   right:56px;
+*/
+  right:14px;
   opacity:0.5
 }
 
 #video_button {
   position:absolute;
+/*
   right:108px;
+*/
+  right:64px;
   top:10px;
   opacity:0.5
 }
 
 #gallery_button {
+  visibility: hidden; /* Show on XR ready */
   position:absolute;
   top:16px;
   right:14px;
   opacity:0.5
-}
-
-#vr_button{
-  position: absolute;
-  top:18px;
-  right:148px;
-}
-
-#zip {
-  position: absolute;
-  top:18px;
-  right:105px;
 }
 
 .lil-gui {
