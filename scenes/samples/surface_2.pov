@@ -1,4 +1,3 @@
-//
 // Surface 2
 // Created by: yesbird65@gmail.com
 // Inspired by: https://povlab.online/isotutorial
