@@ -8,5 +8,6 @@ Use them to explore endless features of one of the best ray tracers in the world
  Live: [povlab.online](https://povlab.online/)
 
  POV-Ray: [repository](https://github.com/POV-Ray/povray), [wiki](https://wiki.povray.org/content/Main_Page).<br>
- HgPovray: [repository](https://github.com/LeForgeron/povray), [wiki](https://wiki.povray.org/content/User:Le_Forgeron/HgPovray38).<br>
+ HgPovray: [repository](https://github.com/LeForgeron/povray), [wiki](https://wiki.povray.org/content/User:Le_Forgeron/HgPovray38).<br><br>
+ <em>Contact: [LinkedIn](https://www.linkedin.com/in/sergey-yanenko-57b21a96/)<em>
  
