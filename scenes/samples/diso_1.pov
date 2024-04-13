@@ -1,4 +1,3 @@
-//
 // Density as isosurface
 // Created by: yesbird65@gmail.com
 // Inspired by: https://www.linuxjournal.com/article/7486
