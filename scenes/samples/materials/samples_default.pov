@@ -1576,17 +1576,19 @@ global_settings {
 #declare mat_array [953][0] = "M_ground_dirty_sand" ;
 #declare mat_array [953][1] = M_ground_dirty_sand 
 
+//  951 - M_ground_mud
 //  416 - M_copper_old 
-//  486 - M_glass_swirl_A 
 //  622 - M_shroom_A 
 //  554 - M_spotted_weed_B 
 //  477 - M_glass_frosted
 //  488 - M_glass_block
-//  951 - M_ground_mud
-
+//  486 - M_glass_swirl_A 
+//  481 - M_glass_green_water
+//  475 - M_glass_blue
+  
 // -----------------------------------------------------------------------------------------
 //                      V I E W   T H I S   S A M P L E
 //------------------------------------------------------------------------------------------ 
-#declare current_sample = 951 ;
+#declare current_sample = 950;
 #include "view_samples.inc"  
 //#include "view_samples_vertical.inc"
