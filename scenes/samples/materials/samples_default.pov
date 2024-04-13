@@ -1416,8 +1416,8 @@ global_settings {
 #declare mat_array [603][0] = "M_ground_sky" ;
 #declare mat_array [603][1] = M_ground_sky ;
 
-#declare mat_array [603][0] = "M_ground_sky_chrome" ;
-#declare mat_array [603][1] = M_ground_sky_chrome ;
+#declare mat_array [604][0] = "M_ground_sky_chrome" ;
+#declare mat_array [604][1] = M_ground_sky_chrome ;
 
 //---   s w i r l s
 #declare mat_array [620][0] = "M_blue_purple_milk" ;
