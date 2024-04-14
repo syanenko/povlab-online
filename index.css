@@ -372,8 +372,8 @@ a, button, input, select {
   width: 605px;
   height: 860px;
   font-family: Monospace;
-	font-size: 16px;
-	line-height: 22px;
+  font-size: 16px;
+  line-height: 22px;
   border: 1px solid #ddd;
   z-index:2
 }
