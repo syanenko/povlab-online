@@ -1,4 +1,3 @@
-//
 // Isosurface: Shell_1
 // Created by: yesbird65@gmail.com
 // Inspired by: https://povlab.online/isotutorial
@@ -8,8 +7,7 @@
 #include "scenes/samples/common/param.inc"
 
 // Camera
-camera
-  {
+camera {
     perspective
     //orthographic // Try it
     /* Try it too
@@ -17,11 +15,11 @@ camera
     distance (clock <0 ? -0:0 )
     parallaxe atan2 (13*clock,300)
     */
-    location  <0, 0, -20> * 1.1
-    look_at <0, -3.5, 0>
+    location  <0, 0, -20> * 1.2
+    look_at <0, -3.7, 0>
     angle 35
     right x * image_width / image_height
-  }
+}
 
 background { color <0, 0, 0> } // By desire
 

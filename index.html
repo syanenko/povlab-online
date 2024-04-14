@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script>
+
+    // Work mode - set to 'normal' before publish !
+    // 
+    // var mode = 'normal';
+    // var mode = 'preview';
+    var mode = 'xr';
+    </script>
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-90TCG4QQ5H"></script>
     <script>
@@ -42,11 +51,8 @@
       document.getElementById("about").showModal();
     }
   </script>
-<!--
-  <img id='result' alt="Image" width="1280" height="720" style='visibility: hidden; z-index:2;'>
--->
-  <img id='result' alt="Image" height="720" style='visibility: hidden; z-index:2;'>
 
+  <img id='result' alt="Image" height="720" style='visibility: hidden; z-index:2;'>
   <form id="form_upload_code" encType="multipart/form-data" style="text-align:left">
     <textarea id="code" name="code" wrap="off"></textarea>
   </form>
@@ -71,10 +77,14 @@
       formData.append("scene", blob, 'scene.pov');
 
       var xhr = new XMLHttpRequest();
-      // Set resolution: check before publish ! 
-      // xhr.open('POST', 'https://povlab.online/render.php'); // Default: 1280x720
-      // xhr.open('POST', 'https://povlab.online/render.php?res=1024'); // XR preview: 1024x1024
-      xhr.open('POST', 'https://povlab.online/render.php?res=2048'); // XR: 4096x2048
+      if( mode == 'preview') {
+        xhr.open('POST', 'https://povlab.online/render.php?res=1024'); // XR preview: 1024x1024
+      } else if(mode == 'xr') {
+        xhr.open('POST', 'https://povlab.online/render.php?res=2048'); // XR: 4096x2048
+      } else {
+        xhr.open('POST', 'https://povlab.online/render.php'); // Default: 1280x720
+      }
+
       xhr.responseType = 'json';
       xhr.onload = function() {
         if (xhr.status === 200) {
@@ -190,13 +200,15 @@
     }
     
     // Load default scene
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const scene = urlParams.get('scene')
-    if(scene != undefined) {
-      loadScene(scene) }
-    else {
-      loadScene('balls.pov') }
+    if( mode == 'normal') {
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const scene = urlParams.get('scene')
+      if(scene != undefined) {
+        loadScene(scene) }
+      else {
+        loadScene('balls.pov') }
+    }
   </script>
 
   </body>
