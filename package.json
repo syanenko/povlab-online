@@ -7,6 +7,6 @@
   },
   "scripts": {
     "start": "npm run dev",
-    "dev": "servez -p 3000"
+    "dev": "servez -p 4000"
   }
 }
