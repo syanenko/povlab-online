@@ -42,8 +42,10 @@
       document.getElementById("about").showModal();
     }
   </script>
-
+<!--
   <img id='result' alt="Image" width="1280" height="720" style='visibility: hidden; z-index:2;'>
+-->
+  <img id='result' alt="Image" height="720" style='visibility: hidden; z-index:2;'>
 
   <form id="form_upload_code" encType="multipart/form-data" style="text-align:left">
     <textarea id="code" name="code" wrap="off"></textarea>
@@ -69,7 +71,10 @@
       formData.append("scene", blob, 'scene.pov');
 
       var xhr = new XMLHttpRequest();
-      xhr.open('POST', 'https://povlab.online/render.php');
+      // Set resolution: check before publish ! 
+      // xhr.open('POST', 'https://povlab.online/render.php'); // Default: 1280x720
+      // xhr.open('POST', 'https://povlab.online/render.php?res=1024'); // XR preview: 1024x1024
+      xhr.open('POST', 'https://povlab.online/render.php?res=2048'); // XR: 4096x2048
       xhr.responseType = 'json';
       xhr.onload = function() {
         if (xhr.status === 200) {
@@ -157,6 +162,7 @@
     <button onclick="loadScene('1TQN/1TQN_POV_scene.pov')", data-title="Molecular structure (6 sec)">MOL</button>
     <button onclick="loadScene('vol_1.pov')",               data-title="Volume (1.6 sec)">VOL 1</button>
     <button onclick="loadScene('vol_2.pov')",               data-title="Volume (2.3 sec)">VOL 2</button>
+    <button onclick="loadScene('vol_3_slice.pov')",         data-title="Volume (2 sec)">VOL 3</button>
     <button onclick="loadScene('diso_1.pov')",              data-title="Density as isosurface (2 sec)">DISO</button>
     <button onclick="loadScene('radiosity_1.pov')",         data-title="Radiosity sphere (20 sec)">RAD</button>
     <button onclick="loadScene('materials/samples_default.pov')", data-title="Materials (4.6 sec)">MAT</button>

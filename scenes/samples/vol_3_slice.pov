@@ -8,17 +8,21 @@ global_settings {
 }
 
 camera {
-  perspective 
+  // perspective 
+  // orthographic
+  stereo
+  distance (clock <0 ? -0:0 )
+  parallaxe atan2 (13*clock,300)
+
   angle 60
-  location <0,-260,100> * 1.5
-  look_at <0,0,0>
-  // sky <0,0,-1>
+  location <0,-200,100>
+  look_at <10,-55,0>
   right x * image_width / image_height
 }
 
 /* Default colormap */
 #declare cm = color_map {
-        [0.00 rgb <0,0.06,0.01>]
+        [0.00 rgb <0,0,0>]
         [0.01 rgb <0 0 1>]
         [0.30 rgb <0,1,0>]
         [0.50 rgb <1,0,0>]
@@ -65,9 +69,6 @@ camera {
 }
 
 background { color <0, 0, 0> }
-
-#declare tex_pink = texture { pigment{ rgb <8.00, 2.00, 3.00>}
-          finish { phong 1 reflection {0.10 metallic 0.4} }}
 
 difference {
   box {
