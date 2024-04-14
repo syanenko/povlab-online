@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script>
+    //
+    // Work mode - always 'normal' before publish !
+    // 
+    // var mode = 'normal';
+    var mode = 'preview';
+    // var mode = 'xr';
+    </script>
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-90TCG4QQ5H"></script>
     <script>
@@ -10,7 +19,7 @@
       gtag('config', 'G-90TCG4QQ5H');
     </script>
 
-    <title>POV-Lab</title>
+    <title>POV-Console</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <meta http-equiv="Pragma" content="no-cache">
@@ -68,7 +77,13 @@
       formData.append("scene", blob, 'scene.pov');
 
       var xhr = new XMLHttpRequest();
-      xhr.open('POST', 'https://povlab.online/render.php'); // Default resolution: 1280x720
+      if( mode == 'preview') {
+        xhr.open('POST', 'https://povlab.online/render.php?res=1024'); // XR preview: 1024x1024
+      } else if(mode == 'xr') {
+        xhr.open('POST', 'https://povlab.online/render.php?res=2048'); // XR: 4096x2048
+      } else {
+        xhr.open('POST', 'https://povlab.online/render.php'); // Default: 1280x720
+      }
 
       xhr.responseType = 'json';
       xhr.onload = function() {
@@ -185,13 +200,15 @@
     }
     
     // Load default scene
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const scene = urlParams.get('scene')
-    if(scene != undefined) {
-      loadScene(scene) }
-    else {
-      loadScene('balls.pov') }
+    if( mode == 'normal') {
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const scene = urlParams.get('scene')
+      if(scene != undefined) {
+        loadScene(scene) }
+      else {
+        loadScene('balls.pov') }
+    }
   </script>
 
   </body>
