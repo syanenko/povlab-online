@@ -5,9 +5,10 @@
     //
     // Work mode - always 'normal' before publish !
     // 
-    // var mode = 'normal';
-    // var mode = 'preview';
-    var mode = 'xr';
+    // var mode = 'normal';     // 1280x720
+    // var mode = 'site';       // 1024x1024
+    var mode = 'xr_preview'; // 1024x512
+    // var mode = 'xr';         // 4096x2048
     </script>
 
     <!-- Google tag (gtag.js) -->
@@ -35,9 +36,8 @@
   </head>
   <body>
 
-  <!-- Header --> 
-  <div id='header'></div>
   <!-- Insert header -->
+  <div id='header'></div>
   <script>
     fetch("/header.html")
       .then(response => {
@@ -52,7 +52,7 @@
     }
   </script>
 
-  <img id='result' alt="Image" height="720" style='visibility: hidden; border: 1px solid #ddd; z-index:2;'>
+  <img id='console_result' alt="Image">
   <form id="form_upload_code" encType="multipart/form-data" style="text-align:left">
     <textarea id="code" name="code" wrap="off"></textarea>
   </form>
@@ -77,8 +77,10 @@
       formData.append("scene", blob, 'scene.pov');
 
       var xhr = new XMLHttpRequest();
-      if( mode == 'preview') {
-        xhr.open('POST', 'https://povlab.online/render.php?res=1024'); // XR preview: 1024x1024
+      if( mode == 'site') {
+        xhr.open('POST', 'https://povlab.online/render.php?res=1024'); // Site image: 1024x1024
+      } else if(mode == 'xr_preview') {
+        xhr.open('POST', 'https://povlab.online/render.php?res=512'); // XR preview: 1024x512
       } else if(mode == 'xr') {
         xhr.open('POST', 'https://povlab.online/render.php?res=2048'); // XR: 4096x2048
       } else {
@@ -88,7 +90,7 @@
       xhr.responseType = 'json';
       xhr.onload = function() {
         if (xhr.status === 200) {
-          let result = document.getElementById("result");
+          let result = document.getElementById("console_result");
           result.src = "https://povlab.online/" + xhr.response;
           console.log(xhr.response);
           result.style.visibility = 'visible';

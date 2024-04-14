@@ -364,23 +364,6 @@ a, button, input, select {
   visibility:hidden'
 }
 
-/* TODO: Replace by codemirror
-#code {
-  resize: none;
-  position: absolute;
-  top: 85px;
-  right: 10px; 
-  width: 605px;
-  height: 860px;
-  direction: ltr;
-  color: #ccc;
-  background:#0a0a0a;
-  font-family: Monospace;
-  font-size: 16px;
-  z-index:2
-}
- */
-
 .CodeMirror{
   resize: none;
   position: absolute;
@@ -391,6 +374,7 @@ a, button, input, select {
   font-family: Monospace;
 	font-size: 16px;
 	line-height: 22px;
+  border: 1px solid #ddd;
   z-index:2
 }
 
@@ -399,6 +383,18 @@ a, button, input, select {
   position: absolute;
   top: 130px;
   left: 8px;
+}
+
+#console_result
+{
+  position: absolute;
+  top: 85px;
+  left: 8px;
+  width: auto;
+  max-height: 800px;
+  border: 1px solid #ddd;
+  visibility:hidden;
+  z-index:0;
 }
 
 #upload_code
@@ -456,7 +452,7 @@ a, button, input, select {
   -ms-user-select: none;
   user-select: none;
   pointer-events: none;
-  z-index: 1;
+  z-index: 2;
 }
 
 /* Tooltips */
