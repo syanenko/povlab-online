@@ -28,26 +28,24 @@ camera {
         [0.50 rgb <1,0,0>]
         [1.00 rgb <1,0,0>] }
 
-// Standard colormaps: try them
-// #include "scenes/samples/common/colormaps.inc"
-// #declare cm = make_colormap (kindlmann,        0.8, 0);
+/* Alternate colormap
+#declare cm = color_map {
+        [0.00 rgb <0,0,0>]
+        [0.01 rgb <0 0.1 0>]
+        [0.20 rgb <0,0.7,0.2>]
+        [0.30 rgb <0,1,0>]
+        [0.40 rgb <0.7,0.5,0>]
+        [0.50 rgb <1,0,1,0>]
+        [1.00 rgb <1,1,0>] }
+*/
 
-// #declare cm = make_colormap (ext_kindlmann,    0.8, 0);
-// #declare cm = make_colormap (viridis,          0.4, 0);
-// #declare cm = make_colormap (spring,           0.6, 0);
-// #declare cm = make_colormap (summer,           0.8, 0);
-// #declare cm = make_colormap (autumn,           0.8, 0);
-// #declare cm = make_colormap (winter,           0.9, 0);
-// #declare cm = make_colormap (cool,             0.5, 0);
-// #declare cm = make_colormap (hot,              0.8, 0);
-// #declare cm = make_colormap (smooth_cool_warm, 0.8, 0);
-// #declare cm = make_colormap (hsv,              0.8, 0);
-// #declare cm = make_colormap (parula,           0.8, 0);
-// #declare cm = make_colormap (jet,              0.8, 0);
-// #declare cm = make_colormap (turbo,            0.8, 0);
-// #declare cm = make_colormap (plasma,           0.8, 0);
-// #declare cm = make_colormap (inferno,          0.8, 0);
-
+/* Standard colormaps
+ #include "scenes/samples/common/colormaps.inc"
+ #declare cm = make_colormap (ext_kindlmann,    0.8, 0);
+ #declare cm = make_colormap (kindlmann,        0.8, 0);
+ #declare cm = make_colormap (hot,              0.8, 0);
+ #declare cm = make_colormap (jet,              0.8, 0);
+*/
 
 #declare theinterior = interior {
   media {
