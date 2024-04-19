@@ -265,23 +265,29 @@ a, button, input, select {
   font-size: 160%;
 }
 
-#upload_button {
-  position:absolute;
-  top:10px;
-/*
-  right:56px;
-*/
-  right:14px;
-  opacity:0.5
-}
-
 #video_button {
   position:absolute;
 /*
   right:108px;
 */
-  right:64px;
+  right:124px;
+  top:12px;
+  opacity:0.5
+}
+
+#upload_button {
+  position:absolute;
   top:10px;
+  right:68px;
+/*  right:14px; */
+  opacity:0.5
+}
+
+#hide_editor_button {
+  visibility: visible; /* Show on XR ready */
+  position:absolute;
+  top:12px;
+  right:14px;
   opacity:0.5
 }
 
@@ -443,7 +449,7 @@ a, button, input, select {
 {
   position: absolute;
   bottom: 6px;
-  left:  80px;
+  left:  50px;
   padding: 10px;
   box-sizing: border-box;
   text-align: center;
