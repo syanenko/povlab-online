@@ -445,11 +445,11 @@ a, button, input, select {
   z-index: 1;
 }
 
-#scenes
+.scenes
 {
   position: absolute;
-  bottom: 6px;
-  left:  50px;
+  bottom: 16px;
+  left:  40px;
   padding: 10px;
   box-sizing: border-box;
   text-align: center;
