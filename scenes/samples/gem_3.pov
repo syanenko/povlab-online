@@ -5,7 +5,7 @@
 // - Gems (gems/*.inc) by Sergey N. Yanenko (Yesbird), May 2024
 // - Ive, September 2012
 //================================================================================
-#version 3.7; 
+#version 3.7;
 #include "spectral/spectral.inc"
 //================================================================================
 // control center
@@ -41,7 +41,7 @@ M_Emerald (0.25)
 #macro Trans()
   rotate -x * 90
   rotate y * 15
-  translate <50.1, 81.4, 175>
+  translate <50.1, 81.2, 175>
 #end
 
 //

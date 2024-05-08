@@ -26,6 +26,10 @@ if (isset($_GET['res'])) {
      $pov_keys = ' povray/etc/povray/3.8/povray_4096x2048.ini ';
    } else if($res == '512') {
      $pov_keys = ' povray/etc/povray/3.8/povray_1024x512.ini ';
+   } else if($res == '720') {
+     $pov_keys = ' povray/etc/povray/3.8/povray_1280x720.ini ';
+   } else if($res == '480') {
+     $pov_keys = ' povray/etc/povray/3.8/povray_640x480.ini ';
    }
 }
 // error_log("res: " . $_GET['res']);

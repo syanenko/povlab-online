@@ -5,7 +5,7 @@
 // - Gems (gems/*.inc) by Sergey N. Yanenko (Yesbird), May 2024
 // - Ive, September 2012
 //================================================================================
-#version 3.7; 
+#version 3.7;
 #include "spectral/spectral.inc"
 //================================================================================
 // control center
