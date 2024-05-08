@@ -26,7 +26,6 @@ blob{
   pigment{rgb 1}
 }
 
-// By desire
 background { color <0, 0, 0> }
 
 camera {
