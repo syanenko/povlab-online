@@ -60,18 +60,17 @@ M_Emerald (0.25)
 #declare Cam_Pos     = < 51, 85.0, 165>;
 #declare Cam_Look    = < 50.1, 81, 175>; 
 #declare Cam_Angle   = 25;
-
-#include "spectral/world.inc"
 //================================================================================
 
 //================================================================================
 // Sky, room ...
 //================================================================================
-object { Sky }        
+#include "spectral/world.inc"
+object { Sky }
 
 object { Room }
 
-object { Table  
+object { Table
   scale <0.6, 1, 0.6>
   rotate y*25
   translate <60,0,175>
