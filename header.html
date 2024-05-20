@@ -1,34 +1,57 @@
+<!--
+
+"asides", as WFP would say.  :-)
+
+due to the "fetch" being located inside the <body> element, I think the
+below superfluous (and wrong ;-)).
+
 <head>
   <link type="text/css" rel="stylesheet" href="/index.css">
 </head>
 
+and given the stylesheet is loaded, having the <style>s in the <div>, <form>
+and paragraphs too is something that needs "straightening out", imo.
+
+also, I wonder if the "tutorials" paragraph ought not be a list, really.
+(would be happy to do)
+
+let me know whether / if you approve of my meddling below.
+
+
+-->
+
 <header>
-  <img id='logo' src="/data/icons/logo_512x512.png" alt="Logo" onclick="showAbout()"/>
-  <div id='head' onclick="showAbout()">POV-Lab</div>
-  <div id='slogan' onclick="showAbout()"
+  <img id='logo' src='/data/icons/logo_512x512.png' alt='Logo' onclick='showAbout()'/>
+  <div id='head' onclick='showAbout()'>POV-Lab</div>
+  <div id='slogan' onclick='showAbout()'
                    onmouseenter="style.opacity = '1.0'"
-                   onmouseleave="style.opacity = '0.6'">Persitence of VR</div>
-
-  <button id="about_button" onclick="showAbout()">About</button>
-  <hr id="line">
-
-  <dialog id="about">
+                   onmouseleave="style.opacity = '0.6'">Persistence of VR</div>
+  <button id='about_button' onclick='showAbout()'>About</button>
+  <hr id='line'>
+  <dialog id='about'>
     <br>
     <div style="font-size: 24px; position:absolute; left:50px; color: #ffac13;">POV-Lab</div>
     <br><br>
-    This is an online tool for creating <a href="https://povray.org" target="_blank">POV-Ray</a> scenes in a web browser and rendering them on a server by <a href="https://wiki.povray.org/content/User:Le_Forgeron" target="_blank">HgPovray</a>. Send scene to rendering by clicking [Upload] button on top panel or pressing [Ctrl-S], use [Camera] button to view rendered image in AR.</p>
-    <p>Following tutorials are available online:
-    <a href="https://povlab.online/povtutorial/" target="_blank">Basics</a>,
-    <a href="https://povlab.online/animtutorial/" target="_blank">Animation</a>,
-    <a href="https://povlab.online/isotutorial/" target="_blank">Isosurfaces</a>.
-    Use them to explore endless features of one of the best ray tracers in the world !</p>
+    &apos;povlab.online&apos; is an online tool for creating
+    <a href='https://povray.org' target='_blank'>POV-Ray</a>
+    scenes in a web browser, and rendering them on a server
+    using <a href='https://wiki.povray.org/content/User:Le_Forgeron' target='_blank'>HgPovray</a>.
+    Send a scene to render by clicking the [Upload] button on the top panel,
+    or pressing [Ctrl-S],
+    use the [Camera] button to view the rendered image in AR.</p>
+    <p>The following tutorials are available online:
+    <a href='https://povlab.online/povtutorial/' target='_blank'>Basics</a>,
+    <a href='https://povlab.online/animtutorial/' target='_blank'>Animation</a>,
+    <a href='https://povlab.online/isotutorial/' target='_blank'>Isosurfaces</a>.
+    Use these to explore the endless features of one of the best ray tracers in the world !</p>
 <!--
     <p style='text-align:legft'>Created by "Yesbird studio" (c)2024.<br>Contacts: <a href='mailto:yesbird65@gmain.com'>Email</a> / <a href="https://www.linkedin.com/in/sergey-yanenko-57b21a96/" target="_blank">LinkedIn</a></p>
 -->
-    <p style='text-align:legft'>Created by "Yesbird" &copy;2024.<br>Contacts: <a href="https://github.com/syanenko/povlab.online" target="_blank">GitHub</a> / <a href='mailto:yesbird65@gmain.com'>Email</a> </p>
-    <form method="dialog" style="text-align:center">
+    <p style='text-align:legft'>Created by &quot;Yesbird&quot; &copy;2024.<br>
+      Contact me: <a href='https://github.com/syanenko/povlab.online' target='_blank'>GitHub</a> / <a href='mailto:yesbird65@gmain.com'>Email</a>
+    </p>
+    <form method='dialog' style='text-align:center'>
       <button style='width:100px'>OK</button>
     </form>
   </dialog>
-
 </header>
