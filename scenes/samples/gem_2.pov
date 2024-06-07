@@ -39,17 +39,18 @@ M_Ruby (0.45)
 // Set transformations
 //
 #macro Trans()
+  scale 0.7  
   rotate -x * 90
   rotate y * 15
-  translate <50.1, 81.4, 175>
+  translate <50.1, 81.2, 175>
 #end
 
 //
 // Lighting / Environment
 //
-#declare MaxTrace    = 60;
+#declare MaxTrace    = 15;
 #declare Radio       = 1;
-//#declare Photons     = 10000000; // Enable for best quality
+// #declare Photons     = 10000000; // Enable for best quality
 #declare Sunlight    = 0.2;
 #declare SkyEmission = 1;
 #declare RoomDesign  = 1; // 6 available
@@ -59,7 +60,7 @@ M_Ruby (0.45)
 //
 #declare Cam_Pos     = < 51, 85.0, 165>;
 #declare Cam_Look    = < 50.1, 81, 175>; 
-#declare Cam_Angle   = 25;
+#declare Cam_Angle   = 15;
 //================================================================================
 
 //================================================================================

@@ -33,7 +33,7 @@ camera {
         [1.00 rgb <1,0,0>] }
 */
 
-/* Alternate colormap
+/* Alternate colormap */
 #declare cm = color_map {
         [0.00 rgb <0,0,0>]
         [0.01 rgb <0 0.1 0>]
@@ -42,7 +42,7 @@ camera {
         [0.40 rgb <0.7,0.5,0>]
         [0.50 rgb <1,0,1,0>]
         [1.00 rgb <1,1,0>] }
-*/
+
 
 // Standard colormaps
 #include "scenes/samples/common/colormaps.inc"
