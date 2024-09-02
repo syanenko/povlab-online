@@ -1,6 +1,6 @@
 #version 3.8;
 #include "scenes/samples/common/mobius.inc"
-#include "scenes/samples/common/colormaps.inc"
+#include "scenes/samples/common/colormaps/parula.inc"
 
 global_settings { assumed_gamma 1 }
 
@@ -16,24 +16,8 @@ texture {
     roughness .001 }
 }
 
-// Colormap: select it
-// #declare cm = make_colormap (viridis,          0.4, 0);
-// #declare cm = make_colormap (spring,           0.6, 0);
-// #declare cm = make_colormap (summer,           0.8, 0);
-// #declare cm = make_colormap (autumn,           0.8, 0);
-// #declare cm = make_colormap (winter,           0.9, 0);
-// #declare cm = make_colormap (cool,             0.5, 0);
-// #declare cm = make_colormap (hot,              0.8, 0);
-// #declare cm = make_colormap (smooth_cool_warm, 0.8, 0);
-// #declare cm = make_colormap (hsv,              0.8, 0);
-#declare cm = make_colormap (parula,           0.1, 0);
-// #declare cm = make_colormap (jet,              0.8, 0);
-// #declare cm = make_colormap (turbo,            0.8, 0);
-// #declare cm = make_colormap (plasma,           0.8, 0);
-// #declare cm = make_colormap (ext_kindlmann,    0.8, 0);
-// #declare cm = make_colormap (kindlmann,        0.8, 0);
-// #declare cm = make_colormap (inferno,          0.8, 0);
-
+// Colormap
+#declare parula = make_colormap (parula, 0.1, 0);
 
 // Model
 union {
@@ -85,7 +69,7 @@ union {
       
     texture {
       pigment { gradient z
-                color_map  { cm }
+                color_map  { parula }
                 scale 1.3 
                 translate 0.75
       }
