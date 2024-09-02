@@ -1,9 +1,21 @@
 #version 3.8;
-#include "textures.inc"
 #include "scenes/samples/common/mobius.inc"
 
 global_settings { assumed_gamma 1 }
 
+// Texture
+#declare Dark_Green_Glass=
+texture { 
+  pigment { rgbf <0.1, 0.7, 0.8, 0.8> }
+  finish {
+    ambient 0.1
+    diffuse 0.1
+    reflection .25
+    specular 1
+    roughness .001 }
+}
+
+// Model
 union {
   mesh2 {
     #local len = dimension_size(VertexVectors,1);
@@ -42,7 +54,7 @@ union {
       Dark_Green_Glass
     }
   }
-
+  
   #local len = dimension_size(VertexVectors,1) - 1;
   #for (i, 0, len)
     sphere { 0, 0.01
@@ -57,11 +69,12 @@ union {
   rotate<180, 225, 55>
 }
 
+// Scene
 camera {
   perspective
   angle 15
-  location  <10,12,-10> * 0.7
-  look_at   <0,0,0>
+  location <10,12,-10> * 0.7
+  look_at  <0,0,0>
   right x * image_width / image_height
 }
 
