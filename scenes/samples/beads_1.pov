@@ -1,5 +1,6 @@
 #version 3.8;
 #include "scenes/samples/common/mobius.inc"
+#include "scenes/samples/common/colormaps.inc"
 
 global_settings { assumed_gamma 1 }
 
@@ -14,6 +15,25 @@ texture {
     specular 1
     roughness .001 }
 }
+
+// Colormap: select it
+// #declare cm = make_colormap (viridis,          0.4, 0);
+// #declare cm = make_colormap (spring,           0.6, 0);
+// #declare cm = make_colormap (summer,           0.8, 0);
+// #declare cm = make_colormap (autumn,           0.8, 0);
+// #declare cm = make_colormap (winter,           0.9, 0);
+// #declare cm = make_colormap (cool,             0.5, 0);
+// #declare cm = make_colormap (hot,              0.8, 0);
+// #declare cm = make_colormap (smooth_cool_warm, 0.8, 0);
+// #declare cm = make_colormap (hsv,              0.8, 0);
+#declare cm = make_colormap (parula,           0.1, 0);
+// #declare cm = make_colormap (jet,              0.8, 0);
+// #declare cm = make_colormap (turbo,            0.8, 0);
+// #declare cm = make_colormap (plasma,           0.8, 0);
+// #declare cm = make_colormap (ext_kindlmann,    0.8, 0);
+// #declare cm = make_colormap (kindlmann,        0.8, 0);
+// #declare cm = make_colormap (inferno,          0.8, 0);
+
 
 // Model
 union {
@@ -55,25 +75,32 @@ union {
     }
   }
   
-  #local len = dimension_size(VertexVectors,1) - 1;
-  #for (i, 0, len)
-    sphere { 0, 0.01
-             texture {
-               pigment {rgb <mod(i,len) / len, mod(i,len) / (len - 1000), 1.2>}
-               finish  { phong 0.5 reflection { 0.2, metallic 0.00 } }
-             }
-             scale 1.6
-             translate VertexVectors[i]
+  union {
+    #local len = dimension_size(VertexVectors,1) - 1;
+    #for (i, 0, len)
+      sphere { 0, 0.019
+               translate VertexVectors[i]
+      }
+    #end
+      
+    texture {
+      pigment { gradient z
+                color_map  { cm }
+                scale 1.3 
+                translate 0.75
+      }
+      finish  { phong 0.5 reflection { 0.2, metallic 0.00 } }
     }
-  #end
-  rotate<180, 225, 55>
+   }
+
+   rotate<0, 0, 0>
 }
 
 // Scene
 camera {
   perspective
   angle 15
-  location <10,12,-10> * 0.7
+  location <10,12,-10> * 1.1
   look_at  <0,0,0>
   right x * image_width / image_height
 }
