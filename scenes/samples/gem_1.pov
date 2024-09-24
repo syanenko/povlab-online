@@ -67,23 +67,23 @@ M_Topaz(0.15)
 // Sky, room ...
 //================================================================================
 #include "spectral/world.inc"
-object { Sky }        
 
 object { Room }
-
+/*
+object { Sky }
 object { Table  
   scale <0.6, 1, 0.6>
   rotate y*25
   translate <60,0,175>
 }
-
+*/
 //================================================================================
 // Light
 //================================================================================
 #declare Lamp = union {
   light_source {0, SpectralEmission(E_Blackbody(5500)) * 60
   fade_power 2
-  fade_distance 5
+  fade_distance 7
 
    #if (AreaLight)
     area_light z*5, y*5, 9,9 adaptive 1 circular orient
@@ -99,7 +99,7 @@ object { Table
     no_radiosity
   }
   
-  translate <50, 130, 220>
+  translate <90, 110, 220>      
 }  
     
 object {Lamp}    

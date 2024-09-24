@@ -17,9 +17,9 @@
 // #include "gems/Maya_drop.inc"
 // #include "gems/Bugbarion.inc"
 // #include "gems/Bugbarionegg.inc"
-// #include "gems/pc01035.inc"
+#include "gems/pc01035.inc"
 // #include "gems/pc15011.inc"
-#include "gems/pc01024.inc"
+// #include "gems/pc01024.inc"
 // #include "gems/pc08049.inc"
 // #include "gems/Trilled.inc"
 
@@ -27,22 +27,22 @@
 // Select material
 //
 #macro Mat()
-M_Emerald (0.25)
+// M_Emerald (0.25)
 // M_Sapphire (0.85)
 // M_Amethyst (0.25)
 // M_Diamond_NaturalYellow(0.45)
 // M_Topaz(0.15)
-// M_Ruby (0.45)
+M_Ruby (0.45)
 #end
 
 // 
 // Set transformations
 //
 #macro Trans()
-  scale 0.8
+  scale 0.7  
   rotate -x * 90
   rotate y * 15
-  translate <50.1, 81.2, 175>
+  translate <50.1, 81.2, 174.8>
 #end
 
 //
@@ -67,15 +67,15 @@ M_Emerald (0.25)
 // Sky, room ...
 //================================================================================
 #include "spectral/world.inc"
-object { Sky }
-
 object { Room }
-
-object { Table
+/*
+object { Sky }
+object { Table  
   scale <0.6, 1, 0.6>
   rotate y*25
   translate <60,0,175>
 }
+*/
 
 //================================================================================
 // Light
@@ -98,8 +98,7 @@ object { Table
     no_shadow
     no_radiosity
   }
-  
-  translate <50, 130, 220>
+  translate <90, 110, 220>
 }  
     
 object {Lamp}    
