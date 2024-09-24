@@ -20,15 +20,17 @@ $pov_keys = ' povray/etc/povray/3.8/povray_1280x720.ini ';
 
 if (isset($_GET['res'])) {
    $res = $_GET['res'];
-   if($res == '1024') {
+   if($res == '1024x1024') {
      $pov_keys = ' povray/etc/povray/3.8/povray_1024x1024.ini ';
-   } else if($res == '2048') {
+   } else if($res == '4096x2048') {
      $pov_keys = ' povray/etc/povray/3.8/povray_4096x2048.ini ';
-   } else if($res == '512') {
+   } else if($res == '1024x512') {
      $pov_keys = ' povray/etc/povray/3.8/povray_1024x512.ini ';
-   } else if($res == '720') {
+   } else if($res == '512x512') {
+     $pov_keys = ' povray/etc/povray/3.8/povray_512x512.ini ';
+   } else if($res == '1280x720') {
      $pov_keys = ' povray/etc/povray/3.8/povray_1280x720.ini ';
-   } else if($res == '480') {
+   } else if($res == '640x480') {
      $pov_keys = ' povray/etc/povray/3.8/povray_640x480.ini ';
    }
 }
