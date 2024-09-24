@@ -1,17 +1,17 @@
 html, body {
-	margin: 0;
-	background-image: linear-gradient(rgb(0, 0, 0), rgb(88, 88, 88));
+  margin: 0;
+  background-image: linear-gradient(rgb(0, 0, 0), rgb(88, 88, 88));
   height: 100%;
   width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
-	background-color: #000;
-	color: #fff;
+  background-color: #000;
+  color: #fff;
   font-family: Monospace;
-	font-size: 13px;
-	line-height: 24px;
-	overscroll-behavior: none;
-  overflow: hidden;
+  font-size: 13px;
+  line-height: 24px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 a {
@@ -24,9 +24,9 @@ a:hover {
 }
 
 button {
-	height: 35px;
-  font-size: 15px;
-	background-color: #333;
+        height: 35px;
+        font-size: 15px;
+        background-color: #333;
 /*
   color: #ffac13;
   color: #0f0;
@@ -34,7 +34,6 @@ button {
   color: #abcdef;
 	cursor: pointer;
 }
-
 
 a, button, input, select {
 	pointer-events: auto;
@@ -376,7 +375,7 @@ a, button, input, select {
   top: 81px;
   right: 10px; 
   width: 605px;
-  height: 880px;
+  height: 870px;
   font-family: Monospace;
   font-size: 16px;
   line-height: 22px;
