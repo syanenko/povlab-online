@@ -81,14 +81,12 @@ object { Table
 // Light
 //================================================================================
 #declare Lamp = union {
-  light_source {0, SpectralEmission(E_Blackbody(5500)) * 60
-  fade_power 2
-  fade_distance 7
-
-   #if (AreaLight)
+  light_source { 0, SpectralEmission(E_Blackbody(5500)) * 60
+    fade_power 2
+    fade_distance 8
+    #if (AreaLight)
     area_light z*5, y*5, 9,9 adaptive 1 circular orient
-   #end 
-
+    #end 
     photons {reflection on refraction on }
   }
 

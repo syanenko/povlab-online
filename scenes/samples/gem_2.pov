@@ -53,7 +53,7 @@ M_Emerald (0.25)
 // #declare Photons     = 10000000; // Enable for best quality
 #declare Sunlight    = 0.2;
 #declare SkyEmission = 1;
-#declare RoomDesign  = 1; // 6 available
+#declare RoomDesign  = 2; // 6 available
 
 //
 // Camera
@@ -82,7 +82,7 @@ object { Table
 #declare Lamp = union {
   light_source {0, SpectralEmission(E_Blackbody(5500)) * 60
   fade_power 2
-  fade_distance 6
+  fade_distance 15
 
    #if (AreaLight)
     area_light z*5, y*5, 9,9 adaptive 1 circular orient

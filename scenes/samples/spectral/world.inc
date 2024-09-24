@@ -229,7 +229,7 @@ camera {
 #switch (RoomDesign)
   // simple white
   #case (1)
-    #declare T_Wall1  = T_Spectral_Matte (D_RGB (1.0, 1.0, 1.0))
+    #declare T_Wall1  = T_Spectral_Matte (D_RGB (0.3, 0.3, 0.3))
     #declare T_Wall2  = T_Spectral_Matte (D_CC_B4)                   
     #declare T_Wall3  = T_Spectral_Matte (D_CC_B4)                   
     #declare T_Ceil   = T_Spectral_Matte (D_CC_A4) 
@@ -239,7 +239,8 @@ camera {
 
   // cyan-green table
   #case (2)
-    #declare T_Wall1  = T_Spectral_Matte (D_RGB (0.6, 0.0, 0.1))
+//    #declare T_Wall1  = T_Spectral_Matte (D_RGB (0.6, 0.0, 0.1))
+    #declare T_Wall1  = T_Spectral_Matte (D_RGB (0.0, 0.0, 0.0))
     #declare T_Wall2  = T_Spectral_Matte (D_CC_B4) 
     #declare T_Wall3  = T_Spectral_Matte (D_CC_B4) 
     #declare T_Ceil   = T_Spectral_Matte (D_CC_A4)
