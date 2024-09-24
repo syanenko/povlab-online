@@ -75,7 +75,7 @@ camera {
     confidence 0.999
     variance 1/1000
     density {
-      density_file df3 "data/volume/dicom_test.df3" 
+      density_file df3 "data/volume/dicom_test.df3"
       interpolate 0
       color_map { cm }
     }
@@ -85,33 +85,10 @@ camera {
 background { color <0, 0, 0> }
 
 box {
-    <0,0,0>, <1,1,1>
-    pigment { rgbf 1 }
-    interior { theinterior }
-    hollow
-    translate <-0.5,-0.5,-0.5>
-    scale <200,160,160>
-  }
-  
-/*
-difference {
-  box {
-    <0,0,0>, <1,1,1>
-    pigment { rgbf 1 }
-    interior { theinterior }
-    hollow
-    translate <-0.5,-0.5,-0.5>
-    scale <200,160,160>
-  }
-
-  box {
-    <0,0,0>, <1,1,1>
-    hollow
-    pigment { rgbf 0.5 }
-
-    translate <-0.5,-0.38,-0.5>
-    scale <400,160,260>
-    rotate <0, 0, 0>
-  }
+  <0,0,0>, <1,1,1>
+  pigment { rgbf 1 }
+  interior { theinterior }
+  hollow
+  translate <-0.5,-0.5,-0.5>
+  scale <200,200,200>
 }
-*/
