@@ -74,7 +74,7 @@
       xhr.onload = function() {
         if (xhr.status === 200) {
           let result = document.getElementById("result");
-          result.src = "https://povlab.online/" + xhr.response;
+          result.src = "https://povlab.online/" + xhr.response[1];
           console.log(xhr.response);
           result.style.visibility = 'visible';
         } else {

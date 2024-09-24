@@ -14,10 +14,7 @@ if(!is_dir($UPLOADS_DIR))
 $model_path = $UPLOADS_DIR . $_FILES['scene']['name'];
 move_uploaded_file($_FILES['scene']["tmp_name"], $model_path);
 
-$pov_in   = $UPLOADS_DIR . $_FILES['scene']['name'];
-$pov_out  = $UPLOADS_DIR . 'scene.png';
 $pov_keys = ' povray/etc/povray/3.8/povray_1280x720.ini ';
-
 if (isset($_GET['res'])) {
    $res = $_GET['res'];
    if($res == '1024x1024') {
@@ -37,11 +34,13 @@ if (isset($_GET['res'])) {
 // error_log("res: " . $_GET['res']);
 // error_log("pov_keys: " . $pov_keys);
 
+$pov_in   = $UPLOADS_DIR . $_FILES['scene']['name'];
 $command='povray/bin/povray -i' . $pov_in . ' -o' . $pov_out . $pov_keys . '2>&1';
 
 $output=null;
 $retval=null;
 exec($command, $output, $retval);
 
+$pov_out  = array('Render time: 2.38 sec', $UPLOADS_DIR . 'scene.png');
 echo json_encode($pov_out);
 ?>
