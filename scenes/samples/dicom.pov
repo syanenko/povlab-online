@@ -33,7 +33,7 @@ camera {
         [1.00 rgb <1,0,0>] }
 */
 
-/* Alternate colormap */
+/* Alternate colormap
 #declare cm = color_map {
         [0.00 rgb <0,0,0>]
         [0.01 rgb <0 0.1 0>]
@@ -42,7 +42,7 @@ camera {
         [0.40 rgb <0.7,0.5,0>]
         [0.50 rgb <1,0,1,0>]
         [1.00 rgb <1,1,0>] }
-
+*/
 
 // Standard colormaps
 #include "scenes/samples/common/colormaps.inc"
@@ -65,18 +65,18 @@ camera {
 
 #declare theinterior = interior {
   media {
-    intervals 16
+    intervals 60
     ratio 0.5
-    samples 2,2
-    method 2
+    samples 1
+    method 3
     emission <1,1,1> / 20
     absorption <1,1,1> / 1000
-    scattering { 0, <1,1,1> * -.3}
+    scattering { 1, <1,1,1> * -.3}
     confidence 0.999
     variance 1/1000
     density {
       density_file df3 "data/volume/dicom_test.df3" 
-      interpolate 1
+      interpolate 0
       color_map { cm }
     }
   }
@@ -85,14 +85,14 @@ camera {
 background { color <0, 0, 0> }
 
 box {
-  <0,0,0>, <1,1,1>
+    <0,0,0>, <1,1,1>
     pigment { rgbf 1 }
-  interior { theinterior }
-  hollow
+    interior { theinterior }
+    hollow
     translate <-0.5,-0.5,-0.5>
     scale <200,160,160>
   }
-
+  
 /*
 difference {
   box {

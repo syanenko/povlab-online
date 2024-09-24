@@ -6,8 +6,8 @@ global_settings { assumed_gamma 1 }
 
 camera { perspective
          angle 35
-         location <8.50, 4.40, -8.50> * 1.5
-         look_at <0.00, -0.20, -0.00>
+         location <8.50, 4.40, -8.50> * 1.2
+         look_at <0.00, -0.50, -0.00>
          rotate<90,0,0>
          right x * image_width / image_height }
 
@@ -292,9 +292,9 @@ background { color <0, 0, 0> }
 
 #declare vol_interior = interior {
   media {
-    intervals 8
+    intervals 32
     ratio 0.5
-    samples  3,3
+    samples  2,2
     method 1
     emission <0.1, 0.1, 0.10>
     absorption <0.10, 0.10, 0.100>
