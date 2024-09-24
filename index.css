@@ -490,3 +490,14 @@ a, button, input, select {
   border: 8px solid transparent;	
   border-bottom: 8px solid #000;
 }
+
+#time
+{ 
+  position: absolute;
+  top: 75px;
+  left: 10px;
+  font-size: 140%;
+  color: #ffffff;
+  opacity: 0.6;
+  font-style: italic;
+}
