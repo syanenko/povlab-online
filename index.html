@@ -77,7 +77,6 @@
         if (xhr.status === 200) {
           let result = document.getElementById("result");
           result.src = "https://povlab.online/" + xhr.response[1];
-          console.log(xhr.response[0]);
           document.getElementById("time").innerHTML = "RT: " + xhr.response[0] + " sec";
           result.style.visibility = 'visible';
         } else {
