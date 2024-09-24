@@ -39,8 +39,11 @@ $command='povray/bin/povray -i' . $pov_in . ' -o' . $pov_out . $pov_keys . '2>&1
 
 $output=null;
 $retval=null;
-exec($command, $output, $retval);
 
-$pov_out  = array('Render time: 2.38 sec', $UPLOADS_DIR . 'scene.png');
+$start = microtime(true);
+exec($command, $output, $retval);
+$end = microtime(true);
+
+$pov_out  = array(number_format($end - $start, 2), $UPLOADS_DIR . 'scene.png');
 echo json_encode($pov_out);
 ?>
