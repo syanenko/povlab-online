@@ -21,6 +21,7 @@ texture {
 
 // Model
 union {
+/*
   mesh2 {
     #local len = dimension_size(VertexVectors,1);
     vertex_vectors {
@@ -58,7 +59,7 @@ union {
       Dark_Green_Glass
     }
   }
-  
+*/  
   union {
     #local len = dimension_size(VertexVectors,1) - 1;
     #for (i, 0, len)
