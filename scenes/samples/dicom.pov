@@ -64,19 +64,13 @@ camera {
 // #declare cm = make_colormap (turbo,            0.8, 0);
 
 #declare theinterior = interior {
-  media {
-    intervals 60
-    ratio 0.5
-    samples 1
-    method 3
-    emission <1,1,1> / 20
-    absorption <1,1,1> / 1000
-    scattering { 1, <1,1,1> * -.3}
-    confidence 0.999
-    variance 1/1000
+  media{
+    samples 100
+    emission 1/20
+    absorption 1/1000
+    scattering {1, -0.3}
     density {
       density_file df3 "data/volume/dicom_test.df3"
-      interpolate 0
       color_map { cm }
     }
   }
