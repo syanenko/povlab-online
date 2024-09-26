@@ -86,6 +86,9 @@ background { color <0, 0, 0> }
 
 box {
   <0,0,0>, <1,1,1>
+  // Slices  
+  // <0,0.5,0>, <1,0.6,1>
+  // <0,0,0.5>, <1,1,0.6>
   pigment { rgbf 1 }
   interior { theinterior }
   hollow
