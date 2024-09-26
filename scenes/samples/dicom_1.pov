@@ -66,8 +66,8 @@ camera {
 #declare theinterior = interior {
   media{
     samples 100
-    emission 1/20
-    absorption 1/1000
+    emission 1/45
+    absorption 0
     scattering {1, -0.3}
     density {
       density_file df3 "data/volume/dicom_test.df3"
@@ -80,7 +80,7 @@ background { color <0, 0, 0> }
 
 box {
   <0,0,0>, <1,1,1>
-  // Slices  
+  // Slices - adjust media's emission/absorption to increase brightness
   // <0,0.5,0>, <1,0.6,1>
   // <0,0,0.5>, <1,1,0.6>
   pigment { rgbf 1 }
