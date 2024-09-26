@@ -31,11 +31,12 @@ if (isset($_GET['res'])) {
      $pov_keys = ' povray/etc/povray/3.8/povray_640x480.ini ';
    }
 }
-// error_log("res: " . $_GET['res']);
-// error_log("pov_keys: " . $pov_keys);
+//error_log("res: " . $_GET['res']);
+//error_log("pov_keys: " . $pov_keys);
 
 $pov_in   = $UPLOADS_DIR . $_FILES['scene']['name'];
-$command='povray/bin/povray -i' . $pov_in . ' -o' . $pov_out . $pov_keys . '2>&1';
+$pov_out  = $UPLOADS_DIR . 'scene.png';
+$command='povray/bin/povray +WT16 -i' . $pov_in . ' -o' . $pov_out . $pov_keys . '2>&1';
 
 $output=null;
 $retval=null;
@@ -44,6 +45,6 @@ $start = microtime(true);
 exec($command, $output, $retval);
 $end = microtime(true);
 
-$pov_out  = array(number_format($end - $start, 2), $UPLOADS_DIR . 'scene.png');
-echo json_encode($pov_out);
+$out  = array(number_format($end - $start, 2), $pov_out);
+echo json_encode($out);
 ?>

@@ -70,7 +70,8 @@
       formData.append("scene", blob, 'scene.pov');
 
       var xhr = new XMLHttpRequest();
-      xhr.open('POST', 'https://povlab.online/render.php'); // Default resolution: 1280x720
+      // xhr.open('POST', 'https://povlab.online/render.php'); // Default resolution: 1280x720
+      xhr.open('POST', 'https://povlab.online/render.php?res=640x480');
 
       xhr.responseType = 'json';
       xhr.onload = function() {
