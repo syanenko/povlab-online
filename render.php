@@ -36,7 +36,7 @@ if (isset($_GET['res'])) {
 
 $pov_in   = $UPLOADS_DIR . $_FILES['scene']['name'];
 $pov_out  = $UPLOADS_DIR . 'scene.png';
-$command='povray/bin/povray +WT16 -i' . $pov_in . ' -o' . $pov_out . $pov_keys . '2>&1';
+$command='povray/bin/povray +WT32 -i' . $pov_in . ' -o' . $pov_out . $pov_keys . '2>&1';
 
 $output=null;
 $retval=null;
