@@ -5,11 +5,14 @@
     //
     // Work mode
     // 
-    var mode = 'normal';     // 1280x720
-    // var mode = 'site';       // 1024x1024
-    // var mode = 'xr_preview'; // 1024x512
-    // var mode = 'xr';         // 4096x2048
-    var res = 480; // 640 x 480
+    //var mode = 'normal';
+    //var res = '1024x1024';
+    //var res = '4096x2048';
+    //var res = '1024x512';
+    //var res = '1280x720';
+    //var res = '4096x2048';
+    // var res = '640x480';
+    var res = '512x512';
     </script>
 
     <!-- Google tag (gtag.js) -->
@@ -78,23 +81,23 @@
       formData.append("scene", blob, 'scene.pov');
 
       var xhr = new XMLHttpRequest();
-      xhr.open('POST', 'https://povlab.online/render.php?res=' + res);
+      xhr.open('POST', 'https://povlab.yesbird.online/render.php?res=' + res);
      /*
       if( mode == 'site') {
-        xhr.open('POST', 'https://povlab.online/render.php?res=1024'); // Site image: 1024x1024
+        xhr.open('POST', 'https://povlab.yesbird.online/render.php?res=1024'); // Site image: 1024x1024
       } else if(mode == 'xr_preview') {
-        xhr.open('POST', 'https://povlab.online/render.php?res=512'); // XR preview: 1024x512
+        xhr.open('POST', 'https://povlab.yesbird.online/render.php?res=512'); // XR preview: 1024x512
       } else if(mode == 'xr') {
-        xhr.open('POST', 'https://povlab.online/render.php?res=2048'); // XR: 4096x2048
+        xhr.open('POST', 'https://povlab.yesbird.online/render.php?res=2048'); // XR: 4096x2048
       } else {
-        xhr.open('POST', 'https://povlab.online/render.php'); // Default: 1280x720
+        xhr.open('POST', 'https://povlab.yesbird.online/render.php'); // Default: 1280x720
       }*/
 
       xhr.responseType = 'json';
       xhr.onload = function() {
         if (xhr.status === 200) {
           let result = document.getElementById("console_result");
-          result.src = "https://povlab.online/" + xhr.response;
+          result.src = "https://povlab.yesbird.online/" + xhr.response;
           console.log(xhr.response);
           result.style.visibility = 'visible';
         } else {
@@ -141,7 +144,7 @@
     };
 
     gb.onclick = function () {
-      window.location = "https://xr.povlab.online";
+      window.location = "https://xr.povlab.yesbird.online";
     };
   </script>
 
@@ -193,11 +196,12 @@
     <button onclick="loadScene('art_2.pov')",               data-title="Artwork 2 (7.8 sec)">ART 2</button>
     <button onclick="loadScene('art_3.pov')",               data-title="Artwork 3 (7.8 sec)">ART 3</button>
     <button onclick="loadScene('art_4.pov')",               data-title="Artwork 4 (20 sec)">ART 4</button>
+    <button onclick="loadScene('jr_1.pov')",                data-title="JR Artwork 1 (1m 6sec)">JR 1</button>
   </div>
 
   <script>
     function loadScene(url) {
-    url = "https://povlab.online/scenes/samples/" + url;
+    url = "https://povlab.yesbird.online/scenes/samples/" + url;
     const options = {
       headers: {
       }

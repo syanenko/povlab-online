@@ -75,14 +75,14 @@
       formData.append("scene", blob, 'scene.pov');
 
       var xhr = new XMLHttpRequest();
-      // xhr.open('POST', 'https://povlab.online/render.php'); // Default resolution: 1280x720
-      xhr.open('POST', 'https://povlab.online/render.php?res=640x480');
+      // xhr.open('POST', 'https://povlab.yesbird.online/render.php'); // Default resolution: 1280x720
+      xhr.open('POST', 'https://povlab.yesbird.online/render.php?res=640x480');
 
       xhr.responseType = 'json';
       xhr.onload = function() {
         if (xhr.status === 200) {
           let result = document.getElementById("result");
-          result.src = "https://povlab.online/" + xhr.response[1];
+          result.src = "https://povlab.yesbird.online/" + xhr.response[1];
           document.getElementById("time").innerHTML = "RT: " + xhr.response[0] + " sec";
           result.style.visibility = 'visible';
         } else {
@@ -129,7 +129,7 @@
     };
 
     gb.onclick = function () {
-      window.location = "https://xr.povlab.online";
+      window.location = "https://xr.povlab.yesbird.online";
     };
   </script>
 
@@ -219,7 +219,7 @@
 
   <script>
     function loadScene(url) {
-    url = "https://povlab.online/scenes/samples/" + url;
+    url = "https://povlab.yesbird.online/scenes/samples/" + url;
     const options = {
       headers: {
       }

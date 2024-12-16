@@ -1,6 +1,6 @@
 // Surface 6
 // Created by: yesbird65@gmail.com
-// Inspired by: https://povlab.online/isotutorial
+// Inspired by: https://povlab.yesbird.online/isotutorial
 // #version 3.8;
 #include "functions.inc"
 #include "scenes/samples/common/colormaps.inc"
