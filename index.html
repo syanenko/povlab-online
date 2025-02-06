@@ -44,10 +44,11 @@
       document.getElementById("about").showModal();
     }
   </script>
+<!-- 800x600 -->
+  <img id='result' alt="Image" style='visibility: hidden; z-index:2; position:absolute; left: 275px; top:170px;'>
 <!-- 640x480
   <img id='result' alt="Image" style='visibility: hidden; z-index:2; position:absolute; left: 300px; top:200px;'>
 -->
-  <img id='result' alt="Image" style='visibility: hidden; z-index:2; position:absolute; left: 300px; top:250px;'>
 <!-- 1280x720
   <img id='result' alt="Image" style='visibility: hidden; z-index:2;'>
 -->
@@ -73,11 +74,14 @@
       const code = document.getElementById("code")
       const blob = new Blob([code.value], { type: "text/plain" });
       formData.append("scene", blob, 'scene.pov');
-
+      
       var xhr = new XMLHttpRequest();
-      // xhr.open('POST', 'https://povlab.yesbird.online/render.php'); // Default resolution: 1280x720
-      xhr.open('POST', 'https://povlab.yesbird.online/render.php?res=640x480');
-
+      xhr.open('POST', 'https://povlab.yesbird.online/render.php?res=800x600');
+      // xhr.open('POST', 'https://povlab.yesbird.online/render.php'); // Default resolution: 1280x720 // 640x480
+      // xhr.open('POST', 'https://povlab.yesbird.online/render.php?res=640x480');
+      // xhr.open('POST', 'https://povlab.yesbird.online/render.php?res=1024x512');
+      // xhr.open('POST', 'https://povlab.yesbird.online/render.php?res=512x512');
+      
       xhr.responseType = 'json';
       xhr.onload = function() {
         if (xhr.status === 200) {
@@ -103,20 +107,6 @@
     document.getElementById("form_upload_code").requestSubmit();
   </script>
 
-  <!-- Video -->
-  <video id="video" playsinline></video>
-  <input id="video_button" type="image" src="./data/icons/outline_videocam_white_48dp.png" style='z-index:2'/>
-  <script>
-    vb = document.getElementById("video_button");
-    vb.onmouseenter = function () {
-      vb.style.opacity = '1.0';
-    };
-
-    vb.onmouseleave = function () {
-      vb.style.opacity = '0.5';
-    };
-  </script>
- 
   <input id="gallery_button" type="image" src="./data/icons/grid_view_FILL0_wght500_GRAD0_opsz48.png", style='z-index:2'/>
   <script>
     gb = document.getElementById("gallery_button");
@@ -131,22 +121,6 @@
     gb.onclick = function () {
       window.location = "https://xr.povlab.yesbird.online";
     };
-  </script>
-
-  <input id="upload_button" type="image" src="./data/icons/outline_file_upload_white_48dp.png", style='z-index:2'/>
-  <script>
-    ub = document.getElementById("upload_button");
-    ub.onmouseenter = function () {
-      ub.style.opacity = '1.0';
-    };
-
-    ub.onmouseleave = function () {
-      ub.style.opacity = '0.5';
-    };
-    
-    ub.onclick = function() {
-        document.getElementById("form_upload_code").requestSubmit();
-    }
   </script>
 
   <input id="hide_editor_button" type="image" src="./data/icons/terminal_FILL0_wght300_GRAD0_opsz48.png", style='z-index:2'/>
@@ -177,8 +151,6 @@
       }
     })
   </script>
-
-  <script type="module" src="index.js"></script>
 
   <!-- Menu -->
   <div class="scenes" style="bottom:26px">
