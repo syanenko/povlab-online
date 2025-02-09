@@ -123,6 +123,22 @@
     };
   </script>
 
+  <input id="upload_button" type="image" src="./data/icons/outline_file_upload_white_48dp.png", style='z-index:2'/>
+  <script>
+    ub = document.getElementById("upload_button");
+    ub.onmouseenter = function () {
+      ub.style.opacity = '1.0';
+    };
+
+    ub.onmouseleave = function () {
+      ub.style.opacity = '0.5';
+    };
+    
+    ub.onclick = function() {
+        document.getElementById("form_upload_code").requestSubmit();
+    }
+  </script>
+
   <input id="hide_editor_button" type="image" src="./data/icons/terminal_FILL0_wght300_GRAD0_opsz48.png", style='z-index:2'/>
   <script>
     heb = document.getElementById("hide_editor_button");
