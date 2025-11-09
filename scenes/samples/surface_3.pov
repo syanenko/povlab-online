@@ -1,7 +1,7 @@
 // Surface 3
 // Created by: yesbird65@gmail.com
 // Inspired by: https://povlab.yesbird.online/isotutorial
-//#version 3.8;
+#version 3.8;
 #include "functions.inc"
 #include "scenes/samples/common/colormaps.inc"
 //global_settings { assumed_gamma 1 }
@@ -9,16 +9,12 @@
 // Camera
 camera
   {
-    // perspective  // Try it
-    // orthographic // Try it too
-   
-    stereo
-    distance (clock <0 ? -0:0 )
-    parallaxe atan2 (13*clock,300)
+    perspective
+    // orthographic // Try it
 
     location <5,5,5>  * 1.2  // Zoom factor: more - faster
     look_at   <0,-0.3,0>
-    angle 55
+    angle 45
     right x * image_width / image_height
   }
 

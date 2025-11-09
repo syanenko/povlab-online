@@ -9,7 +9,7 @@ global_settings {
 
 camera {
   perspective 
-  angle 60
+  angle 35
   location <0,260,100> * 1.5
   look_at <0,0,0>
   sky <0,0,-1>

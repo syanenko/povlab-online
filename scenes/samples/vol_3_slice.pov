@@ -8,13 +8,10 @@ global_settings {
 }
 
 camera {
-  // perspective 
+  perspective 
   // orthographic
-  stereo
-  distance (clock <0 ? -0:0 )
-  parallaxe atan2 (13*clock,300)
 
-  angle 60
+  angle 35
   location <0,-200,100>
   look_at <10,-55,0>
   right x * image_width / image_height
