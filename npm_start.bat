@@ -1,3 +1,3 @@
 REM adb devices
-REM adb reverse tcp:4000 tcp:4000
+REM adb reverse tcp:8085 tcp:8085
 npm start
